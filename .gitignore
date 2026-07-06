@@ -1,0 +1,16 @@
+venv/
+__pycache__/
+*.db
+.streamlit/secrets.toml
+terminals/
+mcps/
+build/
+.dart_tool/
+.flet/
+*.apk
+*.aab
+android/.buildozer/
+android/bin/
+android/.gradle/
+agent-tools/
+tracker-launch.log
