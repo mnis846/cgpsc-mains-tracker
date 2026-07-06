@@ -1,0 +1,20 @@
+[
+  {
+    "id": 2,
+    "log_date": "2026-07-02",
+    "subject": "Paper-7 (GS-V)",
+    "activity": "revised the part 2, wrote a mock test, area for improvements are do more revision , get factual memory correct, write more structure answers \ni studied  from 8 in morning to 11 or 11:30 then 12 to round 1 in noon then 3 to 4:30",
+    "duration_hours": null,
+    "created_at": "2026-07-02 12:48:08",
+    "updated_at": "2026-07-02 12:48:08"
+  },
+  {
+    "id": 3,
+    "log_date": "2026-07-06",
+    "subject": "Paper-7 (GS-V)",
+    "activity": "test is on 9th and today on 6th i almost halfway of my syllabus done major institutions and last test was good but i dont know how much i would score maybe if i get 25-30 ill be more than happy.",
+    "duration_hours": null,
+    "created_at": "2026-07-06 08:39:16",
+    "updated_at": "2026-07-06 08:39:16"
+  }
+]

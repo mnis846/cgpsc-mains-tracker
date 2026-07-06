@@ -1,0 +1,101 @@
+[
+  {
+    "id": 13,
+    "plan_id": 1,
+    "description": "Test target",
+    "planned_hours": 2.0,
+    "paper_id": null,
+    "order_index": 0,
+    "status": "Done",
+    "actual_hours": 1.5,
+    "completion_notes": ""
+  },
+  {
+    "id": 14,
+    "plan_id": 2,
+    "description": "paper 7 part 2",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 0,
+    "status": "Pending",
+    "actual_hours": 0.0,
+    "completion_notes": ""
+  },
+  {
+    "id": 15,
+    "plan_id": 2,
+    "description": "answer writing",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 1,
+    "status": "Pending",
+    "actual_hours": 0.0,
+    "completion_notes": ""
+  },
+  {
+    "id": 18,
+    "plan_id": 3,
+    "description": "revised notes",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 0,
+    "status": "Done",
+    "actual_hours": 0.0,
+    "completion_notes": ""
+  },
+  {
+    "id": 19,
+    "plan_id": 3,
+    "description": "gave mock",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 1,
+    "status": "Done",
+    "actual_hours": 0.0,
+    "completion_notes": ""
+  },
+  {
+    "id": 27,
+    "plan_id": 4,
+    "description": "revise the paper 7 part 3",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 0,
+    "status": "Done",
+    "actual_hours": 0.0,
+    "completion_notes": ""
+  },
+  {
+    "id": 28,
+    "plan_id": 4,
+    "description": "write answer for it",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 1,
+    "status": "Pending",
+    "actual_hours": 0.0,
+    "completion_notes": ""
+  },
+  {
+    "id": 29,
+    "plan_id": 4,
+    "description": "read and memorise the chhattisgarhi authors",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 2,
+    "status": "Pending",
+    "actual_hours": 0.0,
+    "completion_notes": ""
+  },
+  {
+    "id": 30,
+    "plan_id": 4,
+    "description": "memorise the chhattisgarhi muhavare",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 3,
+    "status": "Pending",
+    "actual_hours": 0.0,
+    "completion_notes": ""
+  }
+]
