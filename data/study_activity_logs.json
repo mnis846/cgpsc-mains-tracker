@@ -16,5 +16,14 @@
     "duration_hours": null,
     "created_at": "2026-07-06 08:39:16",
     "updated_at": "2026-07-06 08:39:16"
+  },
+  {
+    "id": 5,
+    "log_date": "2026-07-07",
+    "subject": "Paper-1 (Language)",
+    "activity": "today i revised everything of paper 7 by 12 in noon came to lib at 8. planning to do answer writing after lunch gotta see for chhattisgarhi language",
+    "duration_hours": null,
+    "created_at": "2026-07-07 06:38:29",
+    "updated_at": "2026-07-07 06:38:29"
   }
 ]

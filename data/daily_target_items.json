@@ -149,7 +149,7 @@
     "planned_hours": 0.0,
     "paper_id": null,
     "order_index": 4,
-    "status": "Pending",
+    "status": "Skipped",
     "actual_hours": 0.0,
     "completion_notes": ""
   },
@@ -160,7 +160,7 @@
     "planned_hours": 0.0,
     "paper_id": null,
     "order_index": 5,
-    "status": "Pending",
+    "status": "Skipped",
     "actual_hours": 0.0,
     "completion_notes": ""
   },
@@ -171,7 +171,7 @@
     "planned_hours": 0.0,
     "paper_id": null,
     "order_index": 6,
-    "status": "Pending",
+    "status": "Skipped",
     "actual_hours": 0.0,
     "completion_notes": ""
   },
@@ -182,7 +182,40 @@
     "planned_hours": 0.0,
     "paper_id": null,
     "order_index": 7,
-    "status": "Pending",
+    "status": "Skipped",
+    "actual_hours": 0.0,
+    "completion_notes": ""
+  },
+  {
+    "id": 48,
+    "plan_id": 5,
+    "description": "current affairs",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 8,
+    "status": "Skipped",
+    "actual_hours": 0.0,
+    "completion_notes": ""
+  },
+  {
+    "id": 49,
+    "plan_id": 5,
+    "description": "current affairs",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 9,
+    "status": "Skipped",
+    "actual_hours": 0.0,
+    "completion_notes": ""
+  },
+  {
+    "id": 50,
+    "plan_id": 5,
+    "description": "current affairs",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 10,
+    "status": "Skipped",
     "actual_hours": 0.0,
     "completion_notes": ""
   }
