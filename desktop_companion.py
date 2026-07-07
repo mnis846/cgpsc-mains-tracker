@@ -6,6 +6,7 @@ from __future__ import annotations
 
 import math
 import random
+import socket
 import subprocess
 import sys
 import threading
@@ -17,6 +18,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 APP_URL = "http://localhost:8501"
+_INSTANCE_MUTEX_HANDLE = None
 NAG_MIN_SEC = 3 * 60
 NAG_MAX_SEC = 6 * 60
 CAPTION_MS = 14000
@@ -56,7 +58,26 @@ def _notify(title: str, message: str) -> None:
         pass
 
 
+def _port_in_use(port: int = 8501) -> bool:
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
+        sock.settimeout(0.4)
+        return sock.connect_ex(("127.0.0.1", port)) == 0
+
+
+def _acquire_single_instance() -> bool:
+    global _INSTANCE_MUTEX_HANDLE
+    if sys.platform != "win32":
+        return True
+    import ctypes
+
+    kernel32 = ctypes.windll.kernel32
+    _INSTANCE_MUTEX_HANDLE = kernel32.CreateMutexW(None, False, "Global\\CGPSC.StudySticker")
+    return kernel32.GetLastError() != 183
+
+
 def _ensure_streamlit() -> None:
+    if _port_in_use():
+        return
     script = ROOT / "scripts" / "start_tracker.ps1"
     if not script.exists():
         return
@@ -79,6 +100,12 @@ def _quick_log_hours(hours: float) -> None:
 
         init_db()
         add_daily_study_hours(date.today(), hours, "Quick log — widget")
+        try:
+            from git_sync import notify_data_changed
+
+            notify_data_changed()
+        except Exception:
+            pass
         key = pick_coach_key()
         coach = get_coach(key)
         _notify(coach["name"], f"Logged {hours:g}h. {get_line(key, 'praise')}")
@@ -458,6 +485,15 @@ def _run_tray(sticker: StudySticker):
 
 
 def main():
+    if not _acquire_single_instance():
+        sys.exit(0)
+    sys.path.insert(0, str(ROOT))
+    try:
+        from git_sync import notify_data_changed, start_background_sync
+
+        start_background_sync()
+    except Exception:
+        pass
     _ensure_streamlit()
     time.sleep(1)
     sticker = StudySticker()

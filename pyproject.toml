@@ -10,7 +10,7 @@ dependencies = [
 ]
 
 [tool.flet]
-app.module = "main"
+app.module = "mobile.main"
 app.path = "."
 org = "com.manish.cgpsc"
 product = "CGPSC Mains Tracker"

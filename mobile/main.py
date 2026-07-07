@@ -1037,14 +1037,33 @@ class TrackerApp:
             )
         )
 
+        life = garden.get("life") or {}
         self.body.controls.append(
             ft.Row(
                 [
                     metric_card("Growth XP", f"{garden['xp']:,}"),
-                    metric_card("Stage", f"{info['index'] + 1}/{len(GARDEN_STAGES)}"),
-                    metric_card("Streak", f"{streak} days"),
+                    metric_card(
+                        "Harvest",
+                        f"{life.get('harvest_emoji', '🌱')} {life.get('harvest_label', 'Sprouting')}",
+                    ),
+                    metric_card("Complete streak", f"{life.get('goal_streak', 0)} days"),
                 ],
                 spacing=8,
+            )
+        )
+        self.body.controls.append(
+            ft.Container(
+                content=ft.Text(
+                    life.get(
+                        "hint",
+                        "55 prelims trees + mains sprint — +1 tree every 4 study days. >60% on a test = sakura on that tree.",
+                    ),
+                    color="#2F855A",
+                    size=12,
+                ),
+                bgcolor="#F0FFF4",
+                border_radius=12,
+                padding=12,
             )
         )
 

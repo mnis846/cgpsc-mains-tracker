@@ -23,15 +23,23 @@ function Test-PortOpen([int]$TargetPort) {
 }
 
 function Resolve-Python {
-    $py = Get-Command python -ErrorAction SilentlyContinue
-    if ($py) { return $py.Source }
-    $launcher = Get-Command py -ErrorAction SilentlyContinue
-    if ($launcher) { return "$($launcher.Source) -3" }
-    $local = Join-Path $env:LOCALAPPDATA "Programs\Python\Python313\python.exe"
-    if (Test-Path $local) { return $local }
-    $local314 = Join-Path $env:LOCALAPPDATA "Microsoft\WindowsApps\python.exe"
-    if (Test-Path $local314) { return $local314 }
+    $resolved = & (Join-Path $PSScriptRoot "resolve_python.ps1")
+    if ($LASTEXITCODE -eq 0) { return $resolved }
     return $null
+}
+
+function Wait-ForServer([int]$TargetPort, [string]$TargetUrl, [string]$ReadyMessage) {
+    $joinDeadline = (Get-Date).AddSeconds(45)
+    while ((Get-Date) -lt $joinDeadline) {
+        if (Test-PortOpen $TargetPort) {
+            Start-Sleep -Seconds 1
+            Start-Process $TargetUrl
+            Write-Log $ReadyMessage
+            return $true
+        }
+        Start-Sleep -Milliseconds 500
+    }
+    return $false
 }
 
 Write-Log "Launch requested from $ProjectRoot"
@@ -42,54 +50,77 @@ if (Test-PortOpen $Port) {
     exit 0
 }
 
-$pythonCmd = Resolve-Python
-if (-not $pythonCmd) {
-    Write-Log "ERROR: Python not found in PATH"
-    Write-Host ""
-    Write-Host "Python not found. Install Python 3.10+ then run:"
-    Write-Host "  pip install -r requirements.txt"
-    exit 1
-}
+# Prevent two launchers (e.g. startup race) from starting duplicate servers.
+$LockFile = Join-Path $ProjectRoot ".tracker-launch.lock"
+$LockStream = $null
+$OwnsLaunchLock = $false
+$exitCode = 0
 
-Write-Log "Using Python: $pythonCmd"
-Write-Log "Starting Streamlit..."
-
-if ($pythonCmd -like "* -3") {
-    $parts = $pythonCmd -split " ", 2
-    $exe = $parts[0]
-    $argPrefix = @($parts[1])
-} else {
-    $exe = $pythonCmd
-    $argPrefix = @()
-}
-
-$streamlitArgs = $argPrefix + @(
-    "-m", "streamlit", "run", "app.py",
-    "--server.headless", "true",
-    "--server.port", "$Port"
-)
-
-Start-Process -FilePath $exe `
-    -ArgumentList $streamlitArgs `
-    -WorkingDirectory $ProjectRoot `
-    -WindowStyle Minimized | Out-Null
-
-$deadline = (Get-Date).AddSeconds(45)
-while ((Get-Date) -lt $deadline) {
-    if (Test-PortOpen $Port) {
-        Start-Sleep -Seconds 1
-        Start-Process $Url
-        Write-Log "Ready at $Url"
-        exit 0
+try {
+    try {
+        $LockStream = [System.IO.File]::Open(
+            $LockFile,
+            [System.IO.FileMode]::CreateNew,
+            [System.IO.FileAccess]::Write,
+            [System.IO.FileShare]::None
+        )
+        $OwnsLaunchLock = $true
+    } catch [System.IO.IOException] {
+        Write-Log "Another launch in progress - waiting for server"
+        if (Wait-ForServer $Port $Url "Joined existing launch at $Url") { exit 0 }
+        Write-Log "ERROR: Timed out waiting for server started by another launcher"
+        exit 1
     }
-    Start-Sleep -Milliseconds 500
+
+    $pythonCmd = Resolve-Python
+    if (-not $pythonCmd) {
+        Write-Log "ERROR: Python not found in PATH"
+        Write-Host ""
+        Write-Host "Python not found. Install Python 3.10+ then run:"
+        Write-Host "  pip install -r requirements.txt"
+        $exitCode = 1
+    } else {
+        Write-Log "Using Python: $pythonCmd"
+        Write-Log "Starting Streamlit..."
+
+        if ($pythonCmd -like "* -3") {
+            $parts = $pythonCmd -split " ", 2
+            $exe = $parts[0]
+            $argPrefix = @($parts[1])
+        } else {
+            $exe = $pythonCmd
+            $argPrefix = @()
+        }
+
+        $streamlitArgs = $argPrefix + @(
+            "-m", "streamlit", "run", "app.py",
+            "--server.headless", "true",
+            "--server.port", "$Port"
+        )
+
+        Start-Process -FilePath $exe `
+            -ArgumentList $streamlitArgs `
+            -WorkingDirectory $ProjectRoot `
+            -WindowStyle Minimized | Out-Null
+
+        if (-not (Wait-ForServer $Port $Url "Ready at $Url")) {
+            Write-Log "ERROR: Server did not start within 45 seconds"
+            Write-Host ""
+            Write-Host "Server did not start. Try manually:"
+            Write-Host "  cd $ProjectRoot"
+            Write-Host "  python -m streamlit run app.py"
+            Write-Host ""
+            Write-Host "Log: $LogFile"
+            $exitCode = 1
+        }
+    }
+} finally {
+    if ($LockStream) {
+        $LockStream.Dispose()
+    }
+    if ($OwnsLaunchLock -and (Test-Path $LockFile)) {
+        Remove-Item $LockFile -Force -ErrorAction SilentlyContinue
+    }
 }
 
-Write-Log "ERROR: Server did not start within 45 seconds"
-Write-Host ""
-Write-Host "Server did not start. Try manually:"
-Write-Host "  cd $ProjectRoot"
-Write-Host "  python -m streamlit run app.py"
-Write-Host ""
-Write-Host "Log: $LogFile"
-exit 1
+exit $exitCode

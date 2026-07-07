@@ -754,15 +754,21 @@ def sync_daily_garden_bonuses(today=None):
     return rewards
 
 
-def get_garden_state(streak=0):
+def get_garden_state(streak=0, today=None):
     from garden import get_stage_info
+    from garden_life import sync_garden_life
 
+    if today is None:
+        today = date.today()
     xp = get_garden_xp()
+    life = sync_garden_life(today)
     return {
         "xp": xp,
         "streak": streak,
         "stage_info": get_stage_info(xp),
         "events": get_garden_events(8),
+        "life": life,
+        "vitality": life,
     }
 
 

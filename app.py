@@ -44,13 +44,14 @@ from logbook import (
     get_activity_log_stats,
     get_activity_logs,
 )
+from git_sync import get_sync_status, notify_data_changed, start_background_sync, sync_to_github
 from sync import get_sync_metadata, import_database
+from garden_life import pop_harvest_unlocks
 from garden import (
     GARDEN_CSS,
     GARDEN_STAGES,
     XP_REWARDS,
     get_stage_info,
-    render_garden_card,
     render_interactive_garden,
 )
 from profile import EXAM, EXAM_YEAR, FIRST_NAME, FULL_NAME, MOTTO, greeting, period_nudge, possessive
@@ -107,6 +108,9 @@ def ensure_db_ready():
         if not st.session_state.get("data_seeded"):
             seed_sample_tests()
             st.session_state.data_seeded = True
+        if not st.session_state.get("git_sync_started"):
+            start_background_sync()
+            st.session_state.git_sync_started = True
     except DatabaseError as exc:
         st.error(f"Could not initialize the database: {exc}")
         st.stop()
@@ -114,7 +118,9 @@ def ensure_db_ready():
 
 def run_db(action, error_message="Something went wrong. Please try again."):
     try:
-        return action()
+        result = action()
+        notify_data_changed()
+        return result
     except DatabaseError as exc:
         st.error(f"{error_message} ({exc})")
         return None
@@ -145,6 +151,14 @@ def flush_pending_garden_toasts():
     pending = st.session_state.pop("pending_garden_toasts", [])
     for reward in pending:
         st.toast(f"+{reward['xp']} XP — {reward['message']}", icon="🌳")
+
+
+def show_harvest_unlock(today=None):
+    unlock = pop_harvest_unlocks(today)
+    if unlock:
+        st.toast(unlock["message"], icon=unlock["emoji"])
+        if unlock["tier"] == "golden":
+            st.balloons()
 
 
 def render_metric_rows(metric_rows):
@@ -225,6 +239,32 @@ def render_sidebar():
             if result.get("backup_path"):
                 st.caption(f"Previous PC copy backed up to:\n`{result['backup_path']}`")
             st.rerun()
+
+    st.divider()
+    st.markdown("**GitHub backup**")
+    st.caption(
+        "Pushes to GitHub when you save data (or tap Sync now). "
+        "Background check runs every 10 hours only."
+    )
+    git_status = get_sync_status()
+    if git_status["online"]:
+        st.caption("Internet: connected")
+    else:
+        st.caption("Internet: offline — sync resumes when connected")
+    if git_status.get("last_success"):
+        st.caption(f"Last pushed: {git_status['last_success']}")
+    st.caption(git_status["message"])
+    if st.button("Sync to GitHub now", key="git_sync_now", use_container_width=True):
+        with st.spinner("Pushing to GitHub..."):
+            result = sync_to_github(force=True)
+        if result.get("ok"):
+            if result.get("reason") == "unchanged":
+                st.info("Already up to date on GitHub.")
+            else:
+                st.success("Data pushed to GitHub!")
+        else:
+            st.error(result.get("error") or result.get("reason", "Sync failed"))
+        st.rerun()
 
     st.divider()
     st.markdown("**Study sticker**")
@@ -472,6 +512,7 @@ flush_pending_garden_toasts()
 
 now = datetime.now()
 today = date.today()
+show_harvest_unlock(today)
 tomorrow = today + timedelta(days=1)
 period_key, period_label = period_of_day(now)
 try:
@@ -543,6 +584,24 @@ st.markdown(
 tab_daily, tab_hours, tab_logbook, tab_tests, tab_garden, tab_break = st.tabs(
     ["Targets", "Hours", "Logbook", "Tests", "Garden", "Break"]
 )
+
+if st.query_params.get("view") == "garden":
+    import streamlit.components.v1 as components
+
+    components.html(
+        """
+        <script>
+        (function selectGardenTab() {
+          const doc = window.parent.document;
+          const tabs = [...doc.querySelectorAll('button[data-baseweb="tab"]')];
+          const garden = tabs.find((b) => (b.innerText || "").includes("Garden"));
+          if (garden) { garden.click(); return; }
+          setTimeout(selectGardenTab, 400);
+        })();
+        </script>
+        """,
+        height=0,
+    )
 
 with tab_daily:
     try:
@@ -724,6 +783,7 @@ with tab_hours:
                     "Could not log study hours",
                 ) is not None:
                     queue_garden_reward(award_hours_garden_xp(hours))
+                    show_harvest_unlock(log_date)
                     st.success(
                         f"Nice work, {FIRST_NAME}! Logged {hours}h for "
                         f"{log_date.strftime('%d %b %Y')}."
@@ -1096,27 +1156,58 @@ with tab_tests:
 with tab_garden:
     st.markdown(
         f'<p class="section-label">Study Garden</p>'
-        f'<p class="section-title">Grow your tree as you prep for {EXAM}</p>',
+        f'<p class="section-title">220-day path — up to 55 prelims trees + mains sprint</p>',
         unsafe_allow_html=True,
     )
-    st.caption("Water the tree, collect sunlight orbs, and earn XP from real study actions.")
+    life = garden_state.get("life") or {}
+    st.caption(life.get("hint", "Log hours daily — 4 days grows trees, 6 days brings fruit."))
 
-    render_interactive_garden(garden_state, height=440)
+    week = life.get("week_days") or []
+    if week:
+        dots = '<div class="week-dots"><span style="font-size:0.8rem;color:#558B2F;font-weight:600">This week</span>'
+        for d in week:
+            dots += f'<span class="week-dot {d["status"]}" title="{d["date"]}: {d["hours"]}h"></span>'
+        dots += "</div>"
+        st.markdown(dots, unsafe_allow_html=True)
+
+    render_interactive_garden(garden_state, height=780)
 
     info = garden_state["stage_info"]
-    next_label = "MAX 🏆" if info["is_max"] else str(info["xp_to_next"])
     g1, g2, g3, g4 = st.columns(4)
-    g1.metric("Growth XP", f"{garden_state['xp']:,}")
-    g2.metric("Stage", f"{info['index'] + 1}/{len(GARDEN_STAGES)}")
-    g3.metric("Streak", f"{streak} days")
-    g4.metric("XP to next", next_label)
+    g1.metric("Trees planted", f"🌳 {life.get('tree_count', 1)} / {life.get('max_trees', 77)}")
+    g2.metric("Prelims path", f"{life.get('prelims_trees', 1)} / {life.get('prelims_target', 55)}")
+    g3.metric("Study streak", f"{life.get('goal_streak', 0)} days")
+    g4.metric("Sakura blooms", f"🌸 {life.get('sakura_count', 0)}")
+
+    st.markdown("**Your 220-day → mains journey**")
+    st.info(
+        f"🌳 **Start** — 1 tree. Every **4 complete study days** ({daily_goal:g}h each) plants the next tree.\n\n"
+        f"📅 **~55 trees** by prelims day (220 days ÷ 4) — drag the map to walk your path.\n\n"
+        f"🍎 **6-day streak** — fruit on your trees.\n\n"
+        f"🌸 **Score >60% on a mains test** — that test's tree (T#) blooms sakura permanently.\n\n"
+        f"🏁 **After prelims** — trees 56–77 are your **3-month mains sprint** grove."
+    )
+    trees = life.get("trees") or []
+    if trees:
+        show = trees[-8:] if len(trees) > 8 else trees
+        if len(trees) > 8:
+            st.caption(f"Showing latest 8 of {len(trees)} trees — drag the map to see all.")
+        rows = []
+        for tr in show:
+            status = "🌸 Sakura" if tr.get("has_sakura") else ("🍎 Fruit" if tr.get("has_fruit") else "🌿 Growing")
+            score = f"{tr['score']}%" if tr.get("score") is not None else "—"
+            tag = f"T{tr['test_no']}" if tr.get("test_no") else f"#{tr['tree_no']}"
+            phase = tr.get("phase", "prelims").title()
+            rows.append(f"**{tag}** · {phase} · {tr.get('subject', '')} · {status} · Score: {score}")
+        st.markdown("**Latest trees**\n\n" + "\n\n".join(rows))
+    if life.get("days_to_next_tier", 0) > 0:
+        st.caption(
+            f"{life['days_to_next_tier']} more complete day(s) until **{life.get('next_tier_label', 'next tier')}**."
+        )
 
     garden_left, garden_right = st.columns([1, 1])
 
     with garden_left:
-        st.markdown(render_garden_card(garden_state, compact=True), unsafe_allow_html=True)
-
-    with garden_right:
         st.markdown("**How to earn Growth XP**")
         st.info(
             f"🌅 Daily check-in — +{XP_REWARDS['daily_checkin']} XP "
@@ -1127,7 +1218,7 @@ with tab_garden:
             f"🏆 All targets — +{XP_REWARDS['all_targets']} XP"
         )
 
-        st.markdown("**Evolution path**")
+        st.markdown("**Year-long evolution**")
         badge_html = '<div class="badge-grid">'
         for stage in GARDEN_STAGES:
             earned = garden_state["xp"] >= stage["min_xp"]
@@ -1139,6 +1230,7 @@ with tab_garden:
         badge_html += "</div>"
         st.markdown(badge_html, unsafe_allow_html=True)
 
+    with garden_right:
         events = garden_state.get("events")
         if events is not None and not events.empty:
             st.markdown("**Recent growth**")
@@ -1154,12 +1246,12 @@ with tab_garden:
                 column_config={"event_date": "When", "growth": "Event"},
                 hide_index=True,
                 use_container_width=True,
-                height=280,
+                height=320,
             )
         else:
             st.caption(
                 f"{FIRST_NAME}, your growth log is empty. Log study hours or complete "
-                "a target to start earning XP!"
+                "a target to start growing your map!"
             )
 
 with tab_break:

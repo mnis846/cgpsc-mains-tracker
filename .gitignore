@@ -14,3 +14,5 @@ android/bin/
 android/.gradle/
 agent-tools/
 tracker-launch.log
+git-sync.log
+.git-sync-state.json
