@@ -16,5 +16,14 @@
     "duration_hours": null,
     "created_at": "2026-07-07 06:38:55",
     "updated_at": "2026-07-07 06:38:55"
+  },
+  {
+    "id": 7,
+    "log_date": "2026-07-08",
+    "subject": "Paper-7 (GS-V)",
+    "activity": "completed 2nd proper revision of paper 7 part 2  by 11  idk if i m too fast or idk",
+    "duration_hours": null,
+    "created_at": "2026-07-08 05:25:35",
+    "updated_at": "2026-07-08 05:25:35"
   }
 ]
