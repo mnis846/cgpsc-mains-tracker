@@ -218,5 +218,38 @@
     "status": "Skipped",
     "actual_hours": 0.0,
     "completion_notes": ""
+  },
+  {
+    "id": 51,
+    "plan_id": 6,
+    "description": "revise paper 7 part 3",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 0,
+    "status": "Pending",
+    "actual_hours": 0.0,
+    "completion_notes": ""
+  },
+  {
+    "id": 52,
+    "plan_id": 6,
+    "description": "write answers",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 1,
+    "status": "Pending",
+    "actual_hours": 0.0,
+    "completion_notes": ""
+  },
+  {
+    "id": 53,
+    "plan_id": 6,
+    "description": "chhattisgarhi writers",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 2,
+    "status": "Pending",
+    "actual_hours": 0.0,
+    "completion_notes": ""
   }
 ]
