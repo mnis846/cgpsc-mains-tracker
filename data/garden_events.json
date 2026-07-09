@@ -96,5 +96,12 @@
     "event_type": "streak",
     "xp_amount": 24,
     "message": "3-day study streak bonus"
+  },
+  {
+    "id": 15,
+    "event_date": "2026-07-09 06:08:23",
+    "event_type": "all_targets",
+    "xp_amount": 100,
+    "message": "All targets resolved today!"
   }
 ]
