@@ -75,5 +75,26 @@
     "event_type": "all_targets",
     "xp_amount": 100,
     "message": "All targets resolved today!"
+  },
+  {
+    "id": 12,
+    "event_date": "2026-07-08 10:50:03",
+    "event_type": "daily_goal",
+    "xp_amount": 75,
+    "message": "Hit your 6h daily goal!"
+  },
+  {
+    "id": 13,
+    "event_date": "2026-07-09 02:38:11",
+    "event_type": "checkin",
+    "xp_amount": 25,
+    "message": "Daily check-in — Manish showed up!"
+  },
+  {
+    "id": 14,
+    "event_date": "2026-07-09 02:38:11",
+    "event_type": "streak",
+    "xp_amount": 24,
+    "message": "3-day study streak bonus"
   }
 ]
