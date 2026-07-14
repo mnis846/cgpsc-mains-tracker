@@ -124,5 +124,12 @@
     "event_type": "hours",
     "xp_amount": 1455,
     "message": "Backfill: credited 48.5h of past study"
+  },
+  {
+    "id": 19,
+    "event_date": "2026-07-14 04:50:10",
+    "event_type": "hours",
+    "xp_amount": 187,
+    "message": "Logged 6.25h of study"
   }
 ]
