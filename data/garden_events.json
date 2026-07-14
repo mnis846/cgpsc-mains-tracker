@@ -103,5 +103,26 @@
     "event_type": "all_targets",
     "xp_amount": 100,
     "message": "All targets resolved today!"
+  },
+  {
+    "id": 16,
+    "event_date": "2026-07-13 09:27:02",
+    "event_type": "checkin",
+    "xp_amount": 25,
+    "message": "Daily check-in — Manish showed up!"
+  },
+  {
+    "id": 17,
+    "event_date": "2026-07-14 03:12:03",
+    "event_type": "checkin",
+    "xp_amount": 25,
+    "message": "Daily check-in — Manish showed up!"
+  },
+  {
+    "id": 18,
+    "event_date": "2026-07-14 03:23:46",
+    "event_type": "hours",
+    "xp_amount": 1455,
+    "message": "Backfill: credited 48.5h of past study"
   }
 ]
