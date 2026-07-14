@@ -131,5 +131,12 @@
     "event_type": "hours",
     "xp_amount": 187,
     "message": "Logged 6.25h of study"
+  },
+  {
+    "id": 20,
+    "event_date": "2026-07-14 04:50:10",
+    "event_type": "daily_goal",
+    "xp_amount": 75,
+    "message": "Hit your 6h daily goal!"
   }
 ]
