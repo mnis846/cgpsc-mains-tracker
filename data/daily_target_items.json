@@ -341,7 +341,7 @@
     "completion_notes": ""
   },
   {
-    "id": 75,
+    "id": 78,
     "plan_id": 9,
     "description": "revise what you studied yesterday",
     "planned_hours": 0.0,
@@ -352,7 +352,7 @@
     "completion_notes": ""
   },
   {
-    "id": 76,
+    "id": 79,
     "plan_id": 9,
     "description": "memorise the cg schemes",
     "planned_hours": 0.0,
@@ -363,7 +363,7 @@
     "completion_notes": ""
   },
   {
-    "id": 77,
+    "id": 80,
     "plan_id": 9,
     "description": "cg census and other parts",
     "planned_hours": 0.0,
