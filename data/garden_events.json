@@ -159,5 +159,33 @@
     "event_type": "streak",
     "xp_amount": 8,
     "message": "1-day study streak bonus"
+  },
+  {
+    "id": 24,
+    "event_date": "2026-07-15 10:04:21",
+    "event_type": "all_targets",
+    "xp_amount": 100,
+    "message": "All targets resolved today!"
+  },
+  {
+    "id": 25,
+    "event_date": "2026-07-15 10:07:52",
+    "event_type": "hours",
+    "xp_amount": 195,
+    "message": "Logged 6.5h of study"
+  },
+  {
+    "id": 26,
+    "event_date": "2026-07-15 10:07:53",
+    "event_type": "hours",
+    "xp_amount": 195,
+    "message": "Logged 6.5h of study"
+  },
+  {
+    "id": 27,
+    "event_date": "2026-07-15 10:07:54",
+    "event_type": "daily_goal",
+    "xp_amount": 75,
+    "message": "Hit your 6h daily goal!"
   }
 ]
