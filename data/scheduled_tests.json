@@ -39,13 +39,13 @@
     "subject": "Education & HRD",
     "scheduled_date": "2026-07-09",
     "topic_focus": "Paper-7/Part-III",
-    "status": "Not Attempted",
+    "status": "Attempted",
     "hours_studied": 0.0,
-    "score": null,
-    "remarks": null,
+    "score": 23.0,
+    "remarks": "",
     "attempt_date": null,
     "created_at": "2026-07-01 03:20:21",
-    "max_score": 100.0
+    "max_score": 75.0
   },
   {
     "id": 4,
