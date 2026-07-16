@@ -17,7 +17,7 @@
   },
   {
     "key": "garden_xp",
-    "value": "3289"
+    "value": "3330"
   },
   {
     "key": "hours_xp_backfilled",
@@ -29,7 +29,7 @@
   },
   {
     "key": "last_garden_checkin",
-    "value": "2026-07-15"
+    "value": "2026-07-16"
   },
   {
     "key": "last_garden_daily_goal",
@@ -42,5 +42,9 @@
   {
     "key": "max_unlocked_trees",
     "value": "2"
+  },
+  {
+    "key": "prelims_series_title",
+    "value": "Upcoming Prelims Test Series"
   }
 ]
