@@ -25,5 +25,14 @@
     "duration_hours": null,
     "created_at": "2026-07-08 05:25:35",
     "updated_at": "2026-07-08 05:25:35"
+  },
+  {
+    "id": 8,
+    "log_date": "2026-07-16",
+    "subject": "Paper-5 (GS-III)",
+    "activity": "gonna start with studying the imp topics which have i have been missing ill study that upto 9:30-10 then will take a break then gonna study like untouched topics  then go for lunch comeback do some answer writing and read chhattiagaarhi , do more answer writing and thats it",
+    "duration_hours": null,
+    "created_at": "2026-07-16 03:03:37",
+    "updated_at": "2026-07-16 03:03:37"
   }
 ]
