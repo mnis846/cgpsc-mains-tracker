@@ -243,5 +243,47 @@
     "event_type": "streak",
     "xp_amount": 24,
     "message": "3-day study streak bonus"
+  },
+  {
+    "id": 36,
+    "event_date": "2026-07-17 11:03:09",
+    "event_type": "all_targets",
+    "xp_amount": 100,
+    "message": "All targets resolved today!"
+  },
+  {
+    "id": 37,
+    "event_date": "2026-07-17 11:07:43",
+    "event_type": "hours",
+    "xp_amount": 180,
+    "message": "Logged 6.0h of study"
+  },
+  {
+    "id": 38,
+    "event_date": "2026-07-17 11:07:43",
+    "event_type": "hours",
+    "xp_amount": 180,
+    "message": "Logged 6.0h of study"
+  },
+  {
+    "id": 39,
+    "event_date": "2026-07-17 11:07:44",
+    "event_type": "daily_goal",
+    "xp_amount": 75,
+    "message": "Hit your 6h daily goal!"
+  },
+  {
+    "id": 40,
+    "event_date": "2026-07-18 03:25:26",
+    "event_type": "checkin",
+    "xp_amount": 25,
+    "message": "Daily check-in — Manish showed up!"
+  },
+  {
+    "id": 41,
+    "event_date": "2026-07-18 03:25:26",
+    "event_type": "streak",
+    "xp_amount": 32,
+    "message": "4-day study streak bonus"
   }
 ]

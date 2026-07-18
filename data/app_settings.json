@@ -17,7 +17,7 @@
   },
   {
     "key": "garden_xp",
-    "value": "3974"
+    "value": "4566"
   },
   {
     "key": "hours_xp_backfilled",
@@ -25,15 +25,15 @@
   },
   {
     "key": "last_garden_all_targets",
-    "value": "2026-07-16"
-  },
-  {
-    "key": "last_garden_checkin",
     "value": "2026-07-17"
   },
   {
+    "key": "last_garden_checkin",
+    "value": "2026-07-18"
+  },
+  {
     "key": "last_garden_daily_goal",
-    "value": "2026-07-16"
+    "value": "2026-07-17"
   },
   {
     "key": "last_harvest_tier",
