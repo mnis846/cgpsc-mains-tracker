@@ -292,5 +292,19 @@
     "event_type": "all_targets",
     "xp_amount": 100,
     "message": "All targets resolved today!"
+  },
+  {
+    "id": 43,
+    "event_date": "2026-07-18 06:00:15",
+    "event_type": "hours",
+    "xp_amount": 105,
+    "message": "Logged 3.5h of study"
+  },
+  {
+    "id": 44,
+    "event_date": "2026-07-18 06:00:15",
+    "event_type": "hours",
+    "xp_amount": 105,
+    "message": "Logged 3.5h of study"
   }
 ]
