@@ -504,5 +504,38 @@
     "status": "Pending",
     "actual_hours": 0.0,
     "completion_notes": ""
+  },
+  {
+    "id": 100,
+    "plan_id": 15,
+    "description": "cgarhi",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 0,
+    "status": "Pending",
+    "actual_hours": 0.0,
+    "completion_notes": ""
+  },
+  {
+    "id": 101,
+    "plan_id": 15,
+    "description": "paper 5 part 2",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 1,
+    "status": "Pending",
+    "actual_hours": 0.0,
+    "completion_notes": ""
+  },
+  {
+    "id": 102,
+    "plan_id": 15,
+    "description": "answer writing",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 2,
+    "status": "Pending",
+    "actual_hours": 0.0,
+    "completion_notes": ""
   }
 ]
