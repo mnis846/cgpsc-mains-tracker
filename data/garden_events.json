@@ -432,5 +432,33 @@
     "event_type": "checkin",
     "xp_amount": 25,
     "message": "Daily check-in — Manish showed up!"
+  },
+  {
+    "id": 63,
+    "event_date": "2026-07-26 08:57:16",
+    "event_type": "hours",
+    "xp_amount": 180,
+    "message": "Logged 6.0h of study"
+  },
+  {
+    "id": 64,
+    "event_date": "2026-07-26 08:57:16",
+    "event_type": "hours",
+    "xp_amount": 180,
+    "message": "Logged 6.0h of study"
+  },
+  {
+    "id": 65,
+    "event_date": "2026-07-26 08:57:17",
+    "event_type": "daily_goal",
+    "xp_amount": 75,
+    "message": "Hit your 6h daily goal!"
+  },
+  {
+    "id": 66,
+    "event_date": "2026-07-26 10:41:55",
+    "event_type": "all_targets",
+    "xp_amount": 100,
+    "message": "All targets resolved today!"
   }
 ]
