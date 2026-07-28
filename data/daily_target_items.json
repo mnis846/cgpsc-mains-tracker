@@ -625,5 +625,49 @@
     "status": "Done",
     "actual_hours": 0.0,
     "completion_notes": ""
+  },
+  {
+    "id": 118,
+    "plan_id": 19,
+    "description": "paper 5  part 1",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 0,
+    "status": "Pending",
+    "actual_hours": 0.0,
+    "completion_notes": ""
+  },
+  {
+    "id": 119,
+    "plan_id": 19,
+    "description": "paper 5 part 2",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 1,
+    "status": "Pending",
+    "actual_hours": 0.0,
+    "completion_notes": ""
+  },
+  {
+    "id": 120,
+    "plan_id": 19,
+    "description": "paper 5 part 3",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 2,
+    "status": "Pending",
+    "actual_hours": 0.0,
+    "completion_notes": ""
+  },
+  {
+    "id": 121,
+    "plan_id": 19,
+    "description": "answer writing",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 3,
+    "status": "Pending",
+    "actual_hours": 0.0,
+    "completion_notes": ""
   }
 ]

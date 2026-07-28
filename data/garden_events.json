@@ -481,5 +481,12 @@
     "event_type": "all_targets",
     "xp_amount": 100,
     "message": "All targets resolved today!"
+  },
+  {
+    "id": 70,
+    "event_date": "2026-07-28 03:07:46",
+    "event_type": "checkin",
+    "xp_amount": 25,
+    "message": "Daily check-in — Manish showed up!"
   }
 ]
