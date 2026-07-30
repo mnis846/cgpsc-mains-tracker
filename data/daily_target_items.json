@@ -713,5 +713,71 @@
     "status": "Done",
     "actual_hours": 0.0,
     "completion_notes": ""
+  },
+  {
+    "id": 140,
+    "plan_id": 21,
+    "description": "paper 5 part 1",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 0,
+    "status": "Pending",
+    "actual_hours": 0.0,
+    "completion_notes": ""
+  },
+  {
+    "id": 141,
+    "plan_id": 21,
+    "description": "paper 5 part 2",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 1,
+    "status": "Done",
+    "actual_hours": 0.0,
+    "completion_notes": ""
+  },
+  {
+    "id": 142,
+    "plan_id": 21,
+    "description": "paper 5 part 3",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 2,
+    "status": "Done",
+    "actual_hours": 0.0,
+    "completion_notes": ""
+  },
+  {
+    "id": 143,
+    "plan_id": 21,
+    "description": "answer writing",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 3,
+    "status": "Pending",
+    "actual_hours": 0.0,
+    "completion_notes": ""
+  },
+  {
+    "id": 144,
+    "plan_id": 21,
+    "description": "daily current affairs",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 4,
+    "status": "Pending",
+    "actual_hours": 0.0,
+    "completion_notes": ""
+  },
+  {
+    "id": 145,
+    "plan_id": 21,
+    "description": "chhattisgarhi",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 5,
+    "status": "Pending",
+    "actual_hours": 0.0,
+    "completion_notes": ""
   }
 ]

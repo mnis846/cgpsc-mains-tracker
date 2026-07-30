@@ -1,16 +1,16 @@
 {
-  "exported_at": "2026-07-29 09:35:48 UTC",
+  "exported_at": "2026-07-30 09:28:27 UTC",
   "source_db": "C:\\Projects\\cgpsc-mains-tracker\\cgpsc_mains_tracker.db",
   "source_db_bytes": 114688,
-  "source_db_mtime": "2026-07-29 09:35:43 UTC",
+  "source_db_mtime": "2026-07-30 09:28:26 UTC",
   "table_counts": {
-    "daily_plans": 19,
-    "daily_target_items": 65,
+    "daily_plans": 20,
+    "daily_target_items": 71,
     "daily_study_hours": 18,
     "scheduled_tests": 32,
     "prelims_scheduled_tests": 13,
     "app_settings": 12,
-    "garden_events": 79,
+    "garden_events": 81,
     "study_activity_logs": 7
   }
 }
