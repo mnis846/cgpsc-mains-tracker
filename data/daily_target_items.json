@@ -812,5 +812,49 @@
     "status": "Skipped",
     "actual_hours": 0.0,
     "completion_notes": ""
+  },
+  {
+    "id": 152,
+    "plan_id": 23,
+    "description": "paper 3 part 1 - indian history",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 0,
+    "status": "Pending",
+    "actual_hours": 0.0,
+    "completion_notes": ""
+  },
+  {
+    "id": 153,
+    "plan_id": 23,
+    "description": "question analysis",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 1,
+    "status": "Pending",
+    "actual_hours": 0.0,
+    "completion_notes": ""
+  },
+  {
+    "id": 154,
+    "plan_id": 23,
+    "description": "hindi / chhattisgarhi",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 2,
+    "status": "Pending",
+    "actual_hours": 0.0,
+    "completion_notes": ""
+  },
+  {
+    "id": 155,
+    "plan_id": 23,
+    "description": "economic survey",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 3,
+    "status": "Pending",
+    "actual_hours": 0.0,
+    "completion_notes": ""
   }
 ]
