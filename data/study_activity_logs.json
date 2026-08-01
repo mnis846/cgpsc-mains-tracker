@@ -61,5 +61,14 @@
     "duration_hours": null,
     "created_at": "2026-07-26 10:45:13",
     "updated_at": "2026-07-26 10:45:13"
+  },
+  {
+    "id": 12,
+    "log_date": "2026-08-01",
+    "subject": "Paper-3 (GS-I)",
+    "activity": "have given the last flt which was of the paper 5 currently studying the current affairs, chhattisgarhi strugling with that and economic survey with the corresponding test subject which indian history. studied whole left it at 1858 gonn study tommarow and start the answer writing process , test is on the 4th aug, its my brithday but yeah anayways who cares.",
+    "duration_hours": null,
+    "created_at": "2026-08-01 13:14:37",
+    "updated_at": "2026-08-01 13:14:37"
   }
 ]
