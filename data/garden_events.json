@@ -635,5 +635,33 @@
     "event_type": "hours",
     "xp_amount": 142,
     "message": "Logged 4.75h of study"
+  },
+  {
+    "id": 92,
+    "event_date": "2026-08-01 10:42:39",
+    "event_type": "all_targets",
+    "xp_amount": 100,
+    "message": "All targets resolved today!"
+  },
+  {
+    "id": 93,
+    "event_date": "2026-08-01 10:43:12",
+    "event_type": "hours",
+    "xp_amount": 187,
+    "message": "Logged 6.25h of study"
+  },
+  {
+    "id": 94,
+    "event_date": "2026-08-01 10:43:12",
+    "event_type": "hours",
+    "xp_amount": 187,
+    "message": "Logged 6.25h of study"
+  },
+  {
+    "id": 95,
+    "event_date": "2026-08-01 10:43:13",
+    "event_type": "daily_goal",
+    "xp_amount": 75,
+    "message": "Hit your 6h daily goal!"
   }
 ]
