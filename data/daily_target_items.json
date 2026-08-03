@@ -900,5 +900,38 @@
     "status": "Done",
     "actual_hours": 0.0,
     "completion_notes": ""
+  },
+  {
+    "id": 168,
+    "plan_id": 25,
+    "description": "chhattisgarhi",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 0,
+    "status": "Pending",
+    "actual_hours": 0.0,
+    "completion_notes": ""
+  },
+  {
+    "id": 169,
+    "plan_id": 25,
+    "description": "indian history",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 1,
+    "status": "Pending",
+    "actual_hours": 0.0,
+    "completion_notes": ""
+  },
+  {
+    "id": 170,
+    "plan_id": 25,
+    "description": "answer writing",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 2,
+    "status": "Pending",
+    "actual_hours": 0.0,
+    "completion_notes": ""
   }
 ]
