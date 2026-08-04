@@ -933,5 +933,60 @@
     "status": "Pending",
     "actual_hours": 0.0,
     "completion_notes": ""
+  },
+  {
+    "id": 171,
+    "plan_id": 26,
+    "description": "revise as much as you can",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 0,
+    "status": "Pending",
+    "actual_hours": 0.0,
+    "completion_notes": ""
+  },
+  {
+    "id": 172,
+    "plan_id": 26,
+    "description": "answer writing",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 1,
+    "status": "Pending",
+    "actual_hours": 0.0,
+    "completion_notes": ""
+  },
+  {
+    "id": 173,
+    "plan_id": 26,
+    "description": "give test",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 2,
+    "status": "Pending",
+    "actual_hours": 0.0,
+    "completion_notes": ""
+  },
+  {
+    "id": 174,
+    "plan_id": 26,
+    "description": "indian polity",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 3,
+    "status": "Pending",
+    "actual_hours": 0.0,
+    "completion_notes": ""
+  },
+  {
+    "id": 175,
+    "plan_id": 26,
+    "description": "economic survey",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 4,
+    "status": "Pending",
+    "actual_hours": 0.0,
+    "completion_notes": ""
   }
 ]
