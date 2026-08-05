@@ -768,5 +768,26 @@
     "event_type": "streak",
     "xp_amount": 60,
     "message": "8-day study streak bonus"
+  },
+  {
+    "id": 111,
+    "event_date": "2026-08-05 10:42:17",
+    "event_type": "all_targets",
+    "xp_amount": 100,
+    "message": "All targets resolved today!"
+  },
+  {
+    "id": 112,
+    "event_date": "2026-08-05 10:42:54",
+    "event_type": "hours",
+    "xp_amount": 180,
+    "message": "Logged 6.0h of study"
+  },
+  {
+    "id": 113,
+    "event_date": "2026-08-05 10:42:54",
+    "event_type": "hours",
+    "xp_amount": 180,
+    "message": "Logged 6.0h of study"
   }
 ]
