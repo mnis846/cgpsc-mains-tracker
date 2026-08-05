@@ -754,5 +754,19 @@
     "event_type": "all_targets",
     "xp_amount": 100,
     "message": "All targets resolved today!"
+  },
+  {
+    "id": 109,
+    "event_date": "2026-08-05 02:54:11",
+    "event_type": "checkin",
+    "xp_amount": 25,
+    "message": "Daily check-in — Manish showed up!"
+  },
+  {
+    "id": 110,
+    "event_date": "2026-08-05 02:54:11",
+    "event_type": "streak",
+    "xp_amount": 60,
+    "message": "8-day study streak bonus"
   }
 ]
