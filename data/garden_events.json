@@ -810,5 +810,47 @@
     "event_type": "streak",
     "xp_amount": 60,
     "message": "9-day study streak bonus"
+  },
+  {
+    "id": 117,
+    "event_date": "2026-08-06 03:44:01",
+    "event_type": "hours",
+    "xp_amount": 30,
+    "message": "Logged 1.0h of study"
+  },
+  {
+    "id": 118,
+    "event_date": "2026-08-06 03:44:01",
+    "event_type": "hours",
+    "xp_amount": 30,
+    "message": "Logged 1.0h of study"
+  },
+  {
+    "id": 119,
+    "event_date": "2026-08-06 05:09:49",
+    "event_type": "hours",
+    "xp_amount": 30,
+    "message": "Logged 1.0h of study"
+  },
+  {
+    "id": 120,
+    "event_date": "2026-08-06 05:09:49",
+    "event_type": "hours",
+    "xp_amount": 30,
+    "message": "Logged 1.0h of study"
+  },
+  {
+    "id": 121,
+    "event_date": "2026-08-06 09:22:22",
+    "event_type": "hours",
+    "xp_amount": 30,
+    "message": "Logged 1.0h of study"
+  },
+  {
+    "id": 122,
+    "event_date": "2026-08-06 09:22:22",
+    "event_type": "hours",
+    "xp_amount": 30,
+    "message": "Logged 1.0h of study"
   }
 ]
