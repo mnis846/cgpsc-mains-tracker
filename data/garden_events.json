@@ -992,5 +992,19 @@
     "event_type": "checkin",
     "xp_amount": 25,
     "message": "Daily check-in — Manish showed up!"
+  },
+  {
+    "id": 143,
+    "event_date": "2026-08-12 03:57:03",
+    "event_type": "hours",
+    "xp_amount": 45,
+    "message": "Logged 1.5h of study"
+  },
+  {
+    "id": 144,
+    "event_date": "2026-08-12 03:57:03",
+    "event_type": "hours",
+    "xp_amount": 45,
+    "message": "Logged 1.5h of study"
   }
 ]
