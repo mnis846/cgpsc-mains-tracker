@@ -10,7 +10,7 @@
     "status": "Not Attempted",
     "hours_studied": 0.0,
     "score": null,
-    "remarks": null,
+    "remarks": "",
     "attempt_date": null,
     "created_at": "2026-07-01 03:20:21",
     "max_score": 100.0
