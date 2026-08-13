@@ -1,5 +1,9 @@
 [
   {
+    "key": "atlas_seed_version",
+    "value": "1"
+  },
+  {
     "key": "daily_study_goal_hours",
     "value": "6.0"
   },
@@ -17,7 +21,7 @@
   },
   {
     "key": "garden_xp",
-    "value": "13026"
+    "value": "13261"
   },
   {
     "key": "hours_xp_backfilled",
@@ -25,11 +29,11 @@
   },
   {
     "key": "last_garden_all_targets",
-    "value": "2026-08-05"
+    "value": "2026-08-13"
   },
   {
     "key": "last_garden_checkin",
-    "value": "2026-08-12"
+    "value": "2026-08-13"
   },
   {
     "key": "last_garden_daily_goal",
