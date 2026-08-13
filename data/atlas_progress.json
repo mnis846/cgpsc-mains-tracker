@@ -1,5 +1,16 @@
 [
   {
+    "node_id": 5,
+    "state": "scouted",
+    "confidence": 3,
+    "last_studied": "2026-08-13",
+    "next_due": "2026-08-14",
+    "revision_count": 0,
+    "study_count": 1,
+    "last_note": "",
+    "updated_at": "2026-08-13 08:41:59"
+  },
+  {
     "node_id": 46,
     "state": "scouted",
     "confidence": 3,

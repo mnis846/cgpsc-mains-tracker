@@ -1062,5 +1062,12 @@
     "event_type": "atlas_scout",
     "xp_amount": 12,
     "message": "Atlas · Carnatic Wars & Anglo-French Rivalry is now Scouted"
+  },
+  {
+    "id": 155,
+    "event_date": "2026-08-13 08:41:59",
+    "event_type": "atlas_scout",
+    "xp_amount": 12,
+    "message": "Atlas · Indus Valley Civilization is now Scouted"
   }
 ]

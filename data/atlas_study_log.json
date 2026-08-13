@@ -9,5 +9,16 @@
     "confidence": 3,
     "note": "",
     "created_at": "2026-08-13 08:41:44"
+  },
+  {
+    "id": 4,
+    "node_id": 5,
+    "log_date": "2026-08-13",
+    "action": "scout",
+    "from_state": "unseen",
+    "to_state": "scouted",
+    "confidence": 3,
+    "note": "",
+    "created_at": "2026-08-13 08:41:59"
   }
 ]

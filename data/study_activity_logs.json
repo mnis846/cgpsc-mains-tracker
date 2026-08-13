@@ -88,5 +88,14 @@
     "duration_hours": null,
     "created_at": "2026-08-13 08:41:44",
     "updated_at": "2026-08-13 08:41:44"
+  },
+  {
+    "id": 15,
+    "log_date": "2026-08-13",
+    "subject": "Paper-3 (GS-I)",
+    "activity": "Atlas · Indian History · Ancient India · Indus Valley Civilization — first pass",
+    "duration_hours": null,
+    "created_at": "2026-08-13 08:41:59",
+    "updated_at": "2026-08-13 08:41:59"
   }
 ]
