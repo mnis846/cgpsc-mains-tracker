@@ -1069,5 +1069,19 @@
     "event_type": "atlas_scout",
     "xp_amount": 12,
     "message": "Atlas · Indus Valley Civilization is now Scouted"
+  },
+  {
+    "id": 156,
+    "event_date": "2026-08-14 02:49:21",
+    "event_type": "checkin",
+    "xp_amount": 25,
+    "message": "Daily check-in — Manish showed up!"
+  },
+  {
+    "id": 157,
+    "event_date": "2026-08-14 02:49:21",
+    "event_type": "streak",
+    "xp_amount": 16,
+    "message": "2-day study streak bonus"
   }
 ]
