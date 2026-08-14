@@ -17,7 +17,8 @@ import pandas as pd
 
 from profile import FIRST_NAME
 
-GITHUB_COLORS = ("#ebedf0", "#9be9a8", "#40c463", "#30a14e", "#216e39")
+# GitHub dark-mode contribution graph (matches github.com dark theme)
+GITHUB_COLORS = ("#161b22", "#0e4429", "#006d32", "#26a641", "#39d353")
 DOW_LABELS = ("", "Mon", "", "Wed", "", "Fri", "")
 WEEKS_TO_SHOW = 53
 
@@ -33,8 +34,10 @@ def load_showup_hours(start_date: date, end_date: date | None = None) -> dict[da
             conn,
             params=(start_date.isoformat(), end_date.isoformat()),
         )
+    from database import _parse_log_date
+
     return {
-        pd.to_datetime(row["log_date"]).date(): float(row["hours"])
+        _parse_log_date(row["log_date"]): float(row["hours"])
         for _, row in df.iterrows()
     }
 
@@ -166,15 +169,15 @@ def render_github_heatmap(
 
     return f"""<style>
   .gh-heatmap-root {{
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
     font-size: 12px;
-    color: #24292f;
+    color: #e6edf3;
     margin-bottom: 0.5rem;
   }}
   .gh-heatmap-root * {{ box-sizing: border-box; }}
   .gh-wrap {{
-    background: #ffffff;
-    border: 1px solid #d0d7de;
+    background: #0d1117;
+    border: 1px solid #30363d;
     border-radius: 6px;
     padding: 16px;
     max-width: 100%;
@@ -191,18 +194,19 @@ def render_github_heatmap(
     font-size: 14px;
     font-weight: 600;
     margin-bottom: 4px;
+    color: #e6edf3;
   }}
   .gh-sub {{
     font-size: 12px;
-    color: #57606a;
+    color: #8b949e;
   }}
-  .gh-sub strong {{ color: #24292f; }}
+  .gh-sub strong {{ color: #e6edf3; }}
   .gh-legend {{
     display: flex;
     align-items: center;
-    gap: 2px;
+    gap: 3px;
     font-size: 11px;
-    color: #57606a;
+    color: #8b949e;
   }}
   .gh-legend span {{ margin: 0 3px; }}
   .gh-legend .gh-cell {{
@@ -224,7 +228,7 @@ def render_github_heatmap(
   }}
   .gh-dow {{
     font-size: 9px;
-    color: #57606a;
+    color: #8b949e;
     line-height: 1;
     display: flex;
     align-items: center;
@@ -243,7 +247,7 @@ def render_github_heatmap(
   }}
   .gh-month {{
     font-size: 9px;
-    color: #57606a;
+    color: #8b949e;
     flex-shrink: 0;
     overflow: visible;
     white-space: nowrap;
@@ -268,13 +272,13 @@ def render_github_heatmap(
   }}
   {colors_css}
   .gh-today {{
-    outline: 1.5px solid #0969da;
+    outline: 1.5px solid #58a6ff;
     outline-offset: -1px;
   }}
   .gh-foot {{
     margin-top: 10px;
     font-size: 11px;
-    color: #57606a;
+    color: #8b949e;
   }}
 </style>
 <div class="gh-heatmap-root">
@@ -305,7 +309,7 @@ def render_github_heatmap(
         <div class="gh-grid">{''.join(cells)}</div>
       </div>
     </div>
-    <div class="gh-foot">Goal: {daily_goal:g}h/day · darker green = more study logged</div>
+    <div class="gh-foot">Goal: {daily_goal:g}h/day · brighter green = more study logged</div>
   </div>
 </div>"""
 

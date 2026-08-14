@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-07-17T08:00:00+05:30",
+  "source": "my-garden only (not mains tracker)",
+  "streak": {
+    "continuous_goal_days": 6,
+    "toward_tree": 2,
+    "toward_blossom": 6
+  },
+  "pending_seeds": 0,
+  "trees": [
+    {
+      "id": "tree_001",
+      "planted_date": "2026-07-15",
+      "species": "oak",
+      "reason": "4 continuous days ≥ 6h",
+      "has_cherry_blossom": true,
+      "fruit_tier": "mangoes",
+      "test_score": 82,
+      "memory": "First full 6-day streak — blossoms and fruits."
+    }
+  ]
+}

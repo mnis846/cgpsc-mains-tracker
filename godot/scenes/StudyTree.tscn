@@ -1,0 +1,67 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqstudy_tree01"]
+
+[ext_resource type="Script" path="res://scripts/StudyTree.gd" id="1_tree"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hover"]
+radius = 42.0
+
+[node name="StudyTree" type="Node2D"]
+script = ExtResource("1_tree")
+
+[node name="Shadow" type="Polygon2D" parent="."]
+z_index = -1
+color = Color(0.1, 0.15, 0.08, 0.28)
+polygon = PackedVector2Array(-28, 4, 28, 4, 20, 12, -20, 12)
+
+[node name="PetalParticles" type="GPUParticles2D" parent="."]
+position = Vector2(0, -70)
+emitting = false
+amount = 18
+lifetime = 4.5
+preprocess = 1.0
+randomness = 0.6
+visibility_rect = Rect2(-120, -180, 240, 260)
+
+[node name="SparkleParticles" type="GPUParticles2D" parent="."]
+position = Vector2(0, -55)
+emitting = false
+amount = 12
+lifetime = 1.4
+
+[node name="DustParticles" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 20
+lifetime = 0.9
+one_shot = true
+explosiveness = 0.85
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="HoverArea" type="Area2D" parent="."]
+collision_layer = 1
+collision_mask = 0
+monitoring = false
+monitorable = false
+input_pickable = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HoverArea"]
+position = Vector2(0, -40)
+shape = SubResource("CircleShape2D_hover")
+
+[node name="Tooltip" type="Label" parent="."]
+offset_left = -90.0
+offset_top = -130.0
+offset_right = 90.0
+offset_bottom = -100.0
+theme_override_colors/font_color = Color(1, 0.98, 0.9, 1)
+theme_override_colors/font_shadow_color = Color(0.1, 0.15, 0.1, 0.75)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_font_sizes/font_size = 12
+horizontal_alignment = 1
+vertical_alignment = 1
+text = ""
+visible = false
+
+[connection signal="mouse_entered" from="HoverArea" to="." method="_on_area_mouse_entered"]
+[connection signal="mouse_exited" from="HoverArea" to="." method="_on_area_mouse_exited"]

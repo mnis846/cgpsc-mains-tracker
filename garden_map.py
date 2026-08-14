@@ -2,7 +2,7 @@
 
 import json
 
-import streamlit.components.v1 as components
+import streamlit as st
 
 from garden_life import MAX_GROVE_TREES, PRELIMS_TREE_TARGET
 from profile import FIRST_NAME
@@ -415,4 +415,4 @@ def render_garden_world(garden_state, height=780):
     }})();
     </script>
     """
-    components.html(html, height=height, scrolling=False)
+    st.iframe(html, height=height, width="stretch")

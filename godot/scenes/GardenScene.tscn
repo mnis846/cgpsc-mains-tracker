@@ -1,0 +1,190 @@
+[gd_scene load_steps=7 format=3 uid="uid://cgarden_scene01"]
+
+[ext_resource type="Script" path="res://scripts/GardenScene.gd" id="1_garden"]
+[ext_resource type="Script" path="res://scripts/GroundPainter.gd" id="2_ground"]
+[ext_resource type="Script" path="res://scripts/DecorLayer.gd" id="3_decor"]
+[ext_resource type="Shader" path="res://shaders/sky_gradient.gdshader" id="4_sky"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sky"]
+shader = ExtResource("4_sky")
+shader_parameter/top_color = Color(0.38, 0.62, 0.88, 1)
+shader_parameter/mid_color = Color(0.78, 0.9, 0.96, 1)
+shader_parameter/bottom_color = Color(0.96, 0.88, 0.68, 1)
+shader_parameter/mid_stop = 0.48
+shader_parameter/sun_y = 0.2
+shader_parameter/sun_x = 0.78
+shader_parameter/sun_radius = 0.1
+shader_parameter/sun_color = Color(1, 0.93, 0.55, 1)
+shader_parameter/god_ray_strength = 0.4
+shader_parameter/time_scale = 0.12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+bg_color = Color(0.08, 0.12, 0.1, 0.72)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.55, 0.75, 0.55, 0.35)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+content_margin_left = 16
+content_margin_top = 12
+content_margin_right = 16
+content_margin_bottom = 12
+
+[node name="GardenScene" type="Node2D"]
+script = ExtResource("1_garden")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -10
+
+[node name="Sky" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_sky")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.55, 0.75, 0.9, 1)
+
+[node name="World" type="Node2D" parent="."]
+
+[node name="Ground" type="Node2D" parent="World"]
+z_index = -10
+script = ExtResource("2_ground")
+
+[node name="Decor" type="Node2D" parent="World"]
+z_index = -5
+script = ExtResource("3_decor")
+
+[node name="Trees" type="Node2D" parent="World"]
+
+[node name="ActiveTree" type="Node2D" parent="World"]
+
+[node name="Fireflies" type="GPUParticles2D" parent="World"]
+z_index = 20
+amount = 28
+lifetime = 5.0
+preprocess = 2.0
+
+[node name="Pollen" type="GPUParticles2D" parent="World"]
+z_index = 15
+amount = 40
+lifetime = 8.0
+preprocess = 3.0
+
+[node name="WarmLight" type="PointLight2D" parent="World"]
+position = Vector2(280, -180)
+color = Color(1, 0.9, 0.65, 1)
+energy = 0.85
+texture_scale = 3.2
+height = 40.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -20)
+zoom = Vector2(1, 1)
+
+[node name="HUD" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="Margin" type="MarginContainer" parent="HUD"]
+anchors_preset = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 360.0
+offset_bottom = 240.0
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+
+[node name="Panel" type="PanelContainer" parent="HUD/Margin"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="VBox" type="VBoxContainer" parent="HUD/Margin/Panel"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Title" type="Label" parent="HUD/Margin/Panel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.98, 0.88, 1)
+theme_override_font_sizes/font_size = 18
+text = "🌸 Study Garden"
+
+[node name="StatusLabel" type="Label" parent="HUD/Margin/Panel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.85, 0.75, 1)
+theme_override_font_sizes/font_size = 12
+text = "Connecting…"
+
+[node name="StreakLabel" type="Label" parent="HUD/Margin/Panel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.92, 0.7, 1)
+theme_override_font_sizes/font_size = 15
+text = "🔥 Streak  —"
+
+[node name="CountLabel" type="Label" parent="HUD/Margin/Panel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.75, 0.95, 0.8, 1)
+theme_override_font_sizes/font_size = 14
+text = "🌳 Grove  —"
+
+[node name="HintLabel" type="Label" parent="HUD/Margin/Panel/VBox"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.78, 0.86, 0.8, 0.95)
+theme_override_font_sizes/font_size = 11
+autowrap_mode = 3
+text = "4 days ≥6h plant a tree · 6 days bloom · >60% test fruits"
+
+[node name="RefreshBtn" type="Button" parent="HUD/Margin/Panel/VBox"]
+layout_mode = 2
+text = "Refresh garden"
+
+[node name="Toast" type="Label" parent="HUD"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -280.0
+offset_top = -72.0
+offset_right = 280.0
+offset_bottom = -28.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 0.98, 0.9, 1)
+theme_override_colors/font_shadow_color = Color(0.05, 0.1, 0.05, 0.8)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_font_sizes/font_size = 15
+horizontal_alignment = 1
+vertical_alignment = 1
+text = ""
+
+[node name="Vignette" type="ColorRect" parent="HUD"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[node name="Help" type="Label" parent="HUD"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -320.0
+offset_top = -36.0
+offset_right = -16.0
+offset_bottom = -12.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 0.45)
+theme_override_font_sizes/font_size = 11
+horizontal_alignment = 2
+text = "Scroll zoom · Middle-drag pan · R refresh"

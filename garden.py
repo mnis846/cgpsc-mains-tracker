@@ -31,6 +31,11 @@ XP_REWARDS = {
     "daily_goal": 75,
     "streak_per_day": 8,
     "streak_cap": 60,
+    "atlas_scout": 12,
+    "atlas_map": 8,
+    "atlas_hold": 10,
+    "atlas_fortify": 20,
+    "atlas_drill": 4,
 }
 
 
@@ -124,7 +129,7 @@ def render_garden_card(garden_state, compact=False):
         <div class="garden-xp-total">{xp:,} Growth XP</div>
         <div class="garden-bar"><div class="garden-bar-fill" style="width:{pct}%;background:{bar_color}"></div></div>
         <div class="garden-next">{next_line}</div>
-        <div class="garden-hint">🌾 {FIRST_NAME}, 55 prelims trees + mains sprint — water daily, +1 tree every 4 days, &gt;60% on tests blooms sakura.</div>
+        <div class="garden-hint">🌾 {FIRST_NAME}, 55 prelims trees + mains sprint — full daily goal, +1 permanent tree every 4 complete days, 6-day streaks bloom 🌸, &gt;60% tests fruit 🍎.</div>
       </div>
     </div>"""
 
@@ -133,36 +138,59 @@ GARDEN_CSS = """
 <style>
     .garden-compact {
         display: flex; align-items: center; gap: 1rem;
-        background: linear-gradient(135deg, #ecfdf5, #ede9fe);
-        border: 1px solid #99f6e4; border-radius: 12px;
-        padding: 0.75rem 1.25rem; margin-bottom: 1rem;
+        background: var(--card-grad, linear-gradient(145deg, rgba(22, 28, 42, 0.95), rgba(14, 32, 30, 0.9)));
+        border: 1px solid var(--border, rgba(148, 163, 204, 0.16)); border-radius: var(--radius, 14px);
+        padding: 0.75rem 1.1rem; margin-bottom: 0.85rem;
+        box-shadow: var(--shadow-sm, 0 6px 18px rgba(0, 0, 0, 0.22));
     }
-    .garden-compact-tree { width: 90px; flex-shrink: 0; }
+    .garden-compact-tree { width: 80px; flex-shrink: 0; }
     .garden-compact-info { flex: 1; }
     .garden-hero {
-        display: flex; align-items: center; gap: 2.5rem;
-        background: linear-gradient(135deg, #ecfdf5 0%, #f0fdfa 50%, #ede9fe 100%);
-        border: 1px solid #99f6e4; border-radius: 14px;
-        padding: 1.5rem 2rem; margin-bottom: 1rem;
+        display: flex; align-items: center; gap: 2rem;
+        background: linear-gradient(135deg, rgba(22, 28, 42, 0.95) 0%, rgba(12, 36, 32, 0.9) 55%, rgba(18, 28, 48, 0.95) 100%);
+        border: 1px solid var(--border, rgba(148, 163, 204, 0.16)); border-radius: var(--radius, 16px);
+        padding: 1.2rem 1.5rem; margin-bottom: 0.85rem;
+        box-shadow: var(--shadow-sm, 0 10px 28px rgba(0, 0, 0, 0.25));
     }
-    .garden-visual { width: 240px; flex-shrink: 0; }
+    .garden-visual { width: 200px; flex-shrink: 0; }
     .garden-details { flex: 1; }
-    .garden-stage-title { font-size: 1.5rem; font-weight: 700; color: #22543D; margin-bottom: 0.25rem; }
-    .garden-xp, .garden-xp-total { font-size: 1rem; color: #2F855A; font-weight: 600; margin-bottom: 0.5rem; }
-    .garden-bar { height: 10px; background: #E2E8F0; border-radius: 999px; overflow: hidden; margin-bottom: 0.5rem; }
-    .garden-bar-fill { height: 100%; border-radius: 999px; transition: width 0.6s ease; }
-    .garden-next { font-size: 0.95rem; color: #4A5568; margin-bottom: 0.35rem; }
-    .garden-hint { font-size: 0.85rem; color: #718096; font-style: italic; }
-    .badge-grid { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem; }
-    .badge {
-        display: inline-block; padding: 0.35rem 0.75rem; border-radius: 999px;
-        font-size: 0.8rem; font-weight: 600;
+    .garden-stage-title {
+        font-family: var(--display, 'Outfit', system-ui, sans-serif);
+        font-size: 1.25rem; font-weight: 800; letter-spacing: -0.02em;
+        color: var(--accent-2, #6ee7b7); margin-bottom: 0.2rem;
     }
-    .badge-earned { background: #ccfbf1; color: #0f766e; }
-    .badge-locked { background: #f1f5f9; color: #94a3b8; }
+    .garden-xp, .garden-xp-total {
+        font-family: var(--display, 'Outfit', system-ui, sans-serif);
+        font-size: 0.95rem; color: var(--accent-2, #5eead4); font-weight: 600; margin-bottom: 0.4rem;
+    }
+    .garden-bar {
+        height: 8px; background: rgba(255, 255, 255, 0.06);
+        border-radius: 999px; overflow: hidden; margin-bottom: 0.4rem;
+    }
+    .garden-bar-fill {
+        height: 100%; border-radius: 999px; transition: width 0.6s ease;
+        background: var(--progress-grad, linear-gradient(90deg, #7c6cff, #22d3ee, #34d399)) !important;
+    }
+    .garden-next { font-size: 0.9rem; color: var(--text-2, #c7d0e8); margin-bottom: 0.3rem; }
+    .garden-hint { font-size: 0.8rem; color: var(--muted, #8b95b2); font-style: italic; }
+    .badge-grid { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.4rem; }
+    .badge {
+        display: inline-block; padding: 0.28rem 0.65rem; border-radius: 999px;
+        font-size: 0.75rem; font-weight: 600;
+        font-family: var(--display, 'Outfit', system-ui, sans-serif);
+    }
+    .badge-earned {
+        background: var(--teal-soft, rgba(52, 211, 153, 0.12)); color: #6ee7b7;
+        border: 1px solid rgba(52, 211, 153, 0.3);
+    }
+    .badge-locked {
+        background: rgba(255, 255, 255, 0.04); color: var(--faint, #5d6785);
+        border: 1px solid var(--border, rgba(148, 163, 204, 0.12));
+    }
     .garden-map-fullbleed {
-        margin-left: -1.5rem; margin-right: -1.5rem;
-        width: calc(100% + 3rem); max-width: none;
+        margin-left: calc(-1 * var(--page-pad-x, 1.25rem));
+        margin-right: calc(-1 * var(--page-pad-x, 1.25rem));
+        width: calc(100% + 2 * var(--page-pad-x, 1.25rem)); max-width: none;
     }
     @media (min-width: 900px) {
         .garden-map-fullbleed {
@@ -172,24 +200,67 @@ GARDEN_CSS = """
         }
     }
     .hay-farm-panel {
-        background: linear-gradient(180deg, #E3F2FD 0%, #E8F5E9 100%);
-        border: 2px solid #A5D6A7; border-radius: 16px;
-        padding: 1rem 1.25rem; margin-top: 0.75rem;
+        background: var(--card-grad, linear-gradient(180deg, rgba(22, 28, 42, 0.95) 0%, rgba(12, 28, 26, 0.95) 100%));
+        border: 1px solid var(--border, rgba(148, 163, 204, 0.14));
+        border-radius: var(--radius, 14px);
+        padding: 0.9rem 1.1rem; margin-top: 0.65rem;
     }
-    .week-dots { display: flex; gap: 0.5rem; align-items: center; margin: 0.5rem 0; }
+    .week-dots { display: flex; gap: 0.45rem; align-items: center; margin: 0.4rem 0; }
     .week-dot {
-        width: 14px; height: 14px; border-radius: 50%;
-        border: 2px solid #fff; box-shadow: 0 1px 4px rgba(0,0,0,0.12);
+        width: 12px; height: 12px; border-radius: 50%;
+        border: 2px solid var(--bg-0, #07090f); box-shadow: 0 1px 3px rgba(0,0,0,0.3);
     }
-    .week-dot.complete { background: #43A047; }
-    .week-dot.partial { background: #FDD835; }
-    .week-dot.empty { background: #E0E0E0; }
+    .week-dot.complete { background: var(--teal, #34d399); }
+    .week-dot.partial { background: var(--amber, #fbbf24); }
+    .week-dot.empty { background: rgba(255, 255, 255, 0.08); }
+    .garden-mode-note {
+        font-size: 0.74rem; color: var(--muted, #8b95b2); margin: 0.1rem 0 0.4rem 0;
+    }
+    .garden-stat-row {
+        display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.55rem;
+        margin: 0.55rem 0 0.75rem 0;
+    }
+    .garden-stat {
+        background: var(--metric-grad, linear-gradient(160deg, rgba(22, 28, 42, 0.95), rgba(14, 28, 28, 0.9)));
+        border: 1px solid var(--border, rgba(148, 163, 204, 0.12));
+        border-radius: var(--radius-sm, 12px);
+        padding: 0.55rem 0.6rem; text-align: center;
+    }
+    .garden-stat .k {
+        display: block; font-size: 0.62rem; color: var(--muted, #8b95b2); font-weight: 700;
+        letter-spacing: 0.06em; font-family: var(--display, 'Outfit', system-ui, sans-serif);
+    }
+    .garden-stat .v {
+        display: block; font-size: 0.9rem; color: var(--accent-2, #5eead4); font-weight: 700;
+        margin-top: 0.15rem; font-family: var(--display, 'Outfit', system-ui, sans-serif);
+    }
+    @media (max-width: 700px) {
+        .garden-stat-row { grid-template-columns: repeat(2, 1fr); }
+    }
 </style>
 """
 
 
-def render_interactive_garden(garden_state, height=760):
-    """Cinematic study jungle — full-width draggable map from garden_map."""
-    from garden_map import render_garden_world
+def render_garden_stats_strip(life):
+    """Compact metric chips under the map (no Streamlit metric bloat)."""
+    life = life or {}
+    return f"""
+    <div class="garden-stat-row">
+      <div class="garden-stat"><span class="k">TREES</span><span class="v">🌳 {life.get('tree_count', 1)}/{life.get('max_trees', 77)}</span></div>
+      <div class="garden-stat"><span class="k">PRELIMS PATH</span><span class="v">{life.get('prelims_trees', 1)}/{life.get('prelims_target', 55)}</span></div>
+      <div class="garden-stat"><span class="k">STREAK</span><span class="v">🔥 {life.get('goal_streak', 0)}d</span></div>
+      <div class="garden-stat"><span class="k">BLOOM / FRUIT</span><span class="v">🌸 {life.get('sakura_count', 0)} · 🍎 {life.get('fruit_count', 0)}</span></div>
+    </div>
+    """
 
-    render_garden_world(garden_state, height=height)
+
+def render_interactive_garden(garden_state, height=760, mode="classic"):
+    """Study jungle map. mode: 'classic' (stable) or 'living' (experimental)."""
+    if mode == "living":
+        from garden_map_v2 import render_garden_world_v2
+
+        render_garden_world_v2(garden_state, height=height)
+    else:
+        from garden_map import render_garden_world
+
+        render_garden_world(garden_state, height=height)

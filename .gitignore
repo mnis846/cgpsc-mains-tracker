@@ -2,8 +2,13 @@ venv/
 __pycache__/
 *.db
 .streamlit/secrets.toml
+.agents/
+.codex/
 terminals/
 mcps/
+agent-tools/
+logs/
+.tracker-launch.lock
 build/
 .dart_tool/
 .flet/
@@ -12,7 +17,3 @@ build/
 android/.buildozer/
 android/bin/
 android/.gradle/
-agent-tools/
-tracker-launch.log
-git-sync.log
-.git-sync-state.json

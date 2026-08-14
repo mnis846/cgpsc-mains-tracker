@@ -5,7 +5,9 @@ Set-Location $ProjectRoot
 
 $Port = 8501
 $Url = "http://localhost:$Port"
-$LogFile = Join-Path $ProjectRoot "tracker-launch.log"
+$LogDir = Join-Path $ProjectRoot "logs"
+if (-not (Test-Path $LogDir)) { New-Item -ItemType Directory -Path $LogDir -Force | Out-Null }
+$LogFile = Join-Path $LogDir "tracker-launch.log"
 
 function Write-Log([string]$Message) {
     $line = "$(Get-Date -Format 'yyyy-MM-dd HH:mm:ss') $Message"
@@ -50,26 +52,34 @@ if (Test-PortOpen $Port) {
     exit 0
 }
 
-# Prevent two launchers (e.g. startup race) from starting duplicate servers.
+# Prevent two launchers (e.g. dual Startup shortcuts or race) from starting
+# duplicate servers. Named mutex is process-safe; lock file is a secondary signal.
+$MutexName = "Local\CGPSC.MainsTracker.Launch"
+$Mutex = $null
+$OwnsLaunchLock = $false
 $LockFile = Join-Path $ProjectRoot ".tracker-launch.lock"
 $LockStream = $null
-$OwnsLaunchLock = $false
 $exitCode = 0
 
 try {
-    try {
-        $LockStream = [System.IO.File]::Open(
-            $LockFile,
-            [System.IO.FileMode]::CreateNew,
-            [System.IO.FileAccess]::Write,
-            [System.IO.FileShare]::None
-        )
-        $OwnsLaunchLock = $true
-    } catch [System.IO.IOException] {
+    $Mutex = New-Object System.Threading.Mutex($false, $MutexName)
+    $OwnsLaunchLock = $Mutex.WaitOne(0)
+    if (-not $OwnsLaunchLock) {
         Write-Log "Another launch in progress - waiting for server"
         if (Wait-ForServer $Port $Url "Joined existing launch at $Url") { exit 0 }
         Write-Log "ERROR: Timed out waiting for server started by another launcher"
         exit 1
+    }
+
+    try {
+        $LockStream = [System.IO.File]::Open(
+            $LockFile,
+            [System.IO.FileMode]::Create,
+            [System.IO.FileAccess]::Write,
+            [System.IO.FileShare]::None
+        )
+    } catch {
+        # Non-fatal: mutex already serializes launchers.
     }
 
     $pythonCmd = Resolve-Python
@@ -116,10 +126,16 @@ try {
     }
 } finally {
     if ($LockStream) {
-        $LockStream.Dispose()
+        try { $LockStream.Dispose() } catch { }
     }
     if ($OwnsLaunchLock -and (Test-Path $LockFile)) {
         Remove-Item $LockFile -Force -ErrorAction SilentlyContinue
+    }
+    if ($Mutex) {
+        if ($OwnsLaunchLock) {
+            try { $Mutex.ReleaseMutex() } catch { }
+        }
+        $Mutex.Dispose()
     }
 }
 

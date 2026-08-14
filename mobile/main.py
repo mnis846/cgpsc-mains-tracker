@@ -6,6 +6,7 @@ from datetime import date, datetime, timedelta
 from pathlib import Path
 
 import flet as ft
+import pandas as pd
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
@@ -13,7 +14,6 @@ sys.path.insert(0, str(ROOT))
 from database import (  # noqa: E402
     DatabaseError,
     add_daily_study_hours,
-    award_hours_garden_xp,
     award_target_done_xp,
     get_daily_plan,
     get_daily_plan_summary,
@@ -21,9 +21,11 @@ from database import (  # noqa: E402
     get_garden_state,
     get_longest_streak,
     get_next_scheduled_test,
+    get_prelims_series_progress,
     get_recent_study_hours,
     get_scheduled_tests,
     get_study_hours_for_date,
+    get_study_hours_summary,
     get_study_streak,
     get_test_series_progress,
     get_week_study_hours,
@@ -31,11 +33,21 @@ from database import (  # noqa: E402
     process_daily_checkin,
     save_daily_targets,
     save_evening_reflection,
+    default_max_score,
+    score_percentage,
     seed_sample_tests,
     set_daily_study_goal,
     sync_daily_garden_bonuses,
     update_scheduled_test,
     update_target_status,
+)
+from data_remote import (  # noqa: E402
+    DEFAULT_GITHUB_BRANCH,
+    DEFAULT_GITHUB_REPO,
+    get_last_pull_info,
+    get_remote_config,
+    pull_and_import_from_github,
+    save_remote_config,
 )
 from logbook import (  # noqa: E402
     add_activity_log,
@@ -544,15 +556,41 @@ class TrackerApp:
         week_df = get_week_study_hours(self.today)
         week_total = round(week_df["hours"].sum(), 1)
         goal_progress = min(today_hours / daily_goal, 1.0) if daily_goal else 0
+        summary = get_study_hours_summary()
+        pull = get_last_pull_info()
+        pull_caption = (
+            f"GitHub data · exported {pull['exported_at']}"
+            if pull.get("exported_at")
+            else "Pull from Sync tab to load PC data"
+        )
 
         self.body.controls.extend(
             [
                 section_title(possessive("Study Hours")),
+                ft.Text(pull_caption, size=11, color="#718096"),
                 ft.Row(
                     [
                         metric_card("Today", f"{today_hours}h", f"Goal {daily_goal:g}h"),
                         metric_card("This week", f"{week_total}h"),
                         metric_card("Progress", f"{round(goal_progress * 100)}%"),
+                    ],
+                    spacing=8,
+                ),
+                ft.Row(
+                    [
+                        metric_card("All-time", f"{summary['total_hours']}h"),
+                        metric_card("Study days", str(summary["study_days"])),
+                        metric_card(
+                            "Best day",
+                            f"{summary['best_hours']}h"
+                            if summary["best_hours"]
+                            else "—",
+                            (
+                                str(summary["best_date"])[:10]
+                                if summary.get("best_date")
+                                else None
+                            ),
+                        ),
                     ],
                     spacing=8,
                 ),
@@ -608,13 +646,14 @@ class TrackerApp:
             if hours <= 0:
                 snack(self.page, "Hours must be greater than zero.", "#C53030")
                 return
-            if run_db(
+            result = run_db(
                 self.page,
                 lambda: add_daily_study_hours(log_date, hours, notes_field.value or ""),
                 "Could not log study hours",
-            ) is None:
+            )
+            if result is None:
                 return
-            reward = award_hours_garden_xp(hours)
+            reward = result.get("reward") if isinstance(result, dict) else None
             if reward:
                 snack(self.page, f"+{reward['xp']} XP — {reward['message']}")
             else:
@@ -853,6 +892,30 @@ class TrackerApp:
         completion_pct = (
             round(progress["attempted"] / progress["total"] * 100) if progress["total"] else None
         )
+        df = get_scheduled_tests()
+        pending_marks = 0
+        scored_rows = []
+        if not df.empty:
+            for _, row in df.iterrows():
+                status = row.get("status") or "Not Attempted"
+                score = row.get("score")
+                has_score = score is not None and not (
+                    isinstance(score, float) and pd.isna(score)
+                )
+                if status == "Attempted" and not has_score:
+                    pending_marks += 1
+                if status == "Attempted" and has_score:
+                    scored_rows.append(row)
+
+        pull = get_last_pull_info()
+        if pull.get("exported_at"):
+            self.body.controls.append(
+                ft.Text(
+                    f"Synced from GitHub · exported {pull['exported_at']}",
+                    size=11,
+                    color="#718096",
+                )
+            )
 
         self.body.controls.append(section_title(f"Monsoon Test Series {EXAM_YEAR}"))
         if next_test:
@@ -889,28 +952,108 @@ class TrackerApp:
                 )
             )
 
+        avg_label = "—"
+        if progress["avg_score"] is not None:
+            avg_label = (
+                f"{progress['avg_score']}%"
+                if progress.get("avg_is_pct")
+                else str(progress["avg_score"])
+            )
         self.body.controls.append(
             ft.Row(
                 [
                     metric_card("Attempted", f"{progress['attempted']}/{progress['total']}"),
-                    metric_card(
-                        "Avg score",
-                        str(progress["avg_score"]) if progress["avg_score"] else "—",
-                    ),
+                    metric_card("Avg score", avg_label),
                     metric_card(
                         "Completion",
                         f"{completion_pct}%" if completion_pct is not None else "—",
                     ),
+                    metric_card("Awaiting marks", str(pending_marks)),
                 ],
                 spacing=8,
             )
         )
 
-        df = get_scheduled_tests()
+        # Quick memory: compact score strip for tests that already have marks
+        if scored_rows:
+            self.body.controls.append(section_title("Score memory"))
+            score_chips = []
+            for row in scored_rows[-12:]:
+                max_val = row.get("max_score")
+                if max_val is None or (isinstance(max_val, float) and pd.isna(max_val)) or max_val <= 0:
+                    max_val = default_max_score(row.get("test_type"))
+                pct = score_percentage(row.get("score"), max_val)
+                label = f"#{int(row['test_no'])} {pct}%" if pct is not None else f"#{int(row['test_no'])}"
+                color = (
+                    "#2F855A"
+                    if pct is not None and pct >= 60
+                    else "#C05621"
+                    if pct is not None
+                    else "#4A5568"
+                )
+                score_chips.append(
+                    ft.Container(
+                        content=ft.Column(
+                            [
+                                ft.Text(label, size=12, weight=ft.FontWeight.W_600, color=color),
+                                ft.Text(
+                                    str(row.get("subject") or "")[:18],
+                                    size=10,
+                                    color="#718096",
+                                ),
+                            ],
+                            spacing=2,
+                            tight=True,
+                        ),
+                        bgcolor="#F7FAFC",
+                        border=ft.border.all(1, CARD_BORDER),
+                        border_radius=10,
+                        padding=ft.padding.symmetric(horizontal=10, vertical=8),
+                    )
+                )
+            self.body.controls.append(
+                ft.Row(score_chips, wrap=True, spacing=8, run_spacing=8)
+            )
+
+        try:
+            prelims_progress = get_prelims_series_progress()
+            if prelims_progress.get("total"):
+                p_avg = (
+                    f"{prelims_progress['avg_score']}%"
+                    if prelims_progress.get("avg_score") is not None
+                    and prelims_progress.get("avg_is_pct")
+                    else (
+                        str(prelims_progress["avg_score"])
+                        if prelims_progress.get("avg_score") is not None
+                        else "—"
+                    )
+                )
+                self.body.controls.append(section_title("Prelims snapshot"))
+                self.body.controls.append(
+                    ft.Row(
+                        [
+                            metric_card(
+                                "Attempted",
+                                f"{prelims_progress['attempted']}/{prelims_progress['total']}",
+                            ),
+                            metric_card("Avg", p_avg),
+                        ],
+                        spacing=8,
+                    )
+                )
+        except Exception:
+            pass
+
+        self.body.controls.append(section_title("All tests — edit status / marks"))
         editors = []
         for _, row in df.iterrows():
+            status_val = row["status"] or "Not Attempted"
+            score_missing = row["score"] is None or (
+                hasattr(row["score"], "__float__") and pd.isna(row["score"])
+            )
+            awaiting = status_val == "Attempted" and score_missing
             status_dd = ft.Dropdown(
-                value=row["status"] or "Not Attempted",
+                value=status_val,
                 options=[
                     ft.dropdown.Option("Not Attempted"),
                     ft.dropdown.Option("Attempted"),
@@ -918,34 +1061,68 @@ class TrackerApp:
                 width=140,
             )
             score_field = ft.TextField(
-                value="" if row["score"] is None else str(int(row["score"])),
+                value=""
+                if score_missing
+                else str(int(float(row["score"]))),
                 label="Score",
                 width=80,
                 keyboard_type=ft.KeyboardType.NUMBER,
+                hint_text="later ok",
             )
+            max_val = row.get("max_score") if hasattr(row, "get") else row["max_score"] if "max_score" in row.index else None
+            if max_val is None or (isinstance(max_val, float) and pd.isna(max_val)) or max_val <= 0:
+                max_val = default_max_score(row.get("test_type") if hasattr(row, "get") else row["test_type"])
+            max_field = ft.TextField(
+                value=str(int(float(max_val))),
+                label="Out of",
+                width=80,
+                keyboard_type=ft.KeyboardType.NUMBER,
+            )
+            pct = score_percentage(row.get("score") if hasattr(row, "get") else row["score"], max_val)
+            pct_label = f"{pct}%" if pct is not None else ("⏳ eval" if awaiting else "—")
             remarks_field = ft.TextField(
                 value=str(row["remarks"] or ""),
                 label="Notes",
                 expand=True,
             )
-            editors.append((int(row["test_no"]), row, status_dd, score_field, remarks_field))
+            editors.append(
+                (int(row["test_no"]), row, status_dd, score_field, max_field, remarks_field)
+            )
+            border_color = "#ED8936" if awaiting else CARD_BORDER
             self.body.controls.append(
                 ft.Container(
                     content=ft.Column(
                         [
-                            ft.Text(
-                                f"#{int(row['test_no'])} {row['subject']}",
-                                weight=ft.FontWeight.W_600,
-                                color=NAVY,
+                            ft.Row(
+                                [
+                                    ft.Text(
+                                        f"#{int(row['test_no'])} {row['subject']}",
+                                        weight=ft.FontWeight.W_600,
+                                        color=NAVY,
+                                        expand=True,
+                                    ),
+                                    ft.Text(
+                                        "Awaiting marks" if awaiting else status_val,
+                                        size=11,
+                                        color="#C05621" if awaiting else "#718096",
+                                    ),
+                                ]
                             ),
                             ft.Text(str(row["scheduled_date"])[:10], size=11, color="#718096"),
-                            ft.Row([status_dd, score_field]),
+                            ft.Row(
+                                [
+                                    status_dd,
+                                    score_field,
+                                    max_field,
+                                    ft.Text(pct_label, size=13, color="#2F855A"),
+                                ]
+                            ),
                             remarks_field,
                         ],
                         spacing=6,
                     ),
-                    bgcolor="#FFFFFF",
-                    border=ft.border.all(1, CARD_BORDER),
+                    bgcolor="#FFFAF0" if awaiting else "#FFFFFF",
+                    border=ft.border.all(1, border_color),
                     border_radius=12,
                     padding=12,
                 )
@@ -953,27 +1130,66 @@ class TrackerApp:
 
         def save_tests(_):
             changed = 0
-            for test_no, original, status_dd, score_field, remarks_field in editors:
-                status = status_dd.value
+            for test_no, original, status_dd, score_field, max_field, remarks_field in editors:
+                status = status_dd.value or "Not Attempted"
                 score = None
-                if status == "Attempted":
-                    if not score_field.value.strip():
-                        snack(self.page, f"Test #{test_no}: enter a score.", "#C53030")
+                max_score = None
+                if max_field.value and str(max_field.value).strip():
+                    try:
+                        max_score = float(max_field.value)
+                    except ValueError:
+                        snack(self.page, f"Test #{test_no}: invalid Out of.", "#C53030")
                         return
-                    score = float(score_field.value)
+                    if max_score <= 0:
+                        snack(self.page, f"Test #{test_no}: Out of must be > 0.", "#C53030")
+                        return
+                # Score is optional for Attempted (evaluation may be delayed).
+                # Not Attempted always clears score so leftover marks are not kept.
+                score_text = (score_field.value or "").strip()
+                if status == "Not Attempted":
+                    score = None
+                elif score_text:
+                    try:
+                        score = float(score_text)
+                    except ValueError:
+                        snack(self.page, f"Test #{test_no}: invalid score.", "#C53030")
+                        return
+                    if max_score is None:
+                        snack(
+                            self.page,
+                            f"Test #{test_no}: set Out of (total marks).",
+                            "#C53030",
+                        )
+                        return
+                    if score > max_score:
+                        snack(
+                            self.page,
+                            f"Test #{test_no}: score cannot exceed Out of.",
+                            "#C53030",
+                        )
+                        return
+                else:
+                    # Attempted with blank score = pending evaluation
+                    score = None
                 original_status = original["status"] or "Not Attempted"
                 original_score = original["score"]
+                if original_score is not None and hasattr(original_score, "__float__") and pd.isna(original_score):
+                    original_score = None
+                original_max = original["max_score"] if "max_score" in original.index else None
+                if original_max is not None and hasattr(original_max, "__float__") and pd.isna(original_max):
+                    original_max = None
                 original_remarks = original["remarks"] or ""
                 if (
                     status == original_status
                     and score == original_score
-                    and remarks_field.value == original_remarks
+                    and max_score == original_max
+                    and (remarks_field.value or "") == original_remarks
                 ):
                     continue
                 if run_db(
                     self.page,
-                    lambda tn=test_no, st=status, sc=score, rm=remarks_field.value: update_scheduled_test(
-                        tn, status=st, score=sc, remarks=rm
+                    lambda tn=test_no, st=status, sc=score, ms=max_score, rm=remarks_field.value: update_scheduled_test(
+                        tn, status=st, score=sc, max_score=ms, remarks=rm or ""
                     ),
                     f"Could not save test #{test_no}",
                 ) is None:
@@ -1043,10 +1259,14 @@ class TrackerApp:
                 [
                     metric_card("Growth XP", f"{garden['xp']:,}"),
                     metric_card(
-                        "Harvest",
-                        f"{life.get('harvest_emoji', '🌱')} {life.get('harvest_label', 'Sprouting')}",
+                        "Trees",
+                        f"🌳 {life.get('tree_count', 1)}",
                     ),
-                    metric_card("Complete streak", f"{life.get('goal_streak', 0)} days"),
+                    metric_card(
+                        "Complete days",
+                        f"{life.get('complete_days', 0)}",
+                    ),
+                    metric_card("Goal streak", f"{life.get('goal_streak', 0)}d"),
                 ],
                 spacing=8,
             )
@@ -1133,25 +1353,31 @@ class TrackerApp:
         meta = get_sync_metadata()
         updated = meta["modified"] or "not saved yet"
         size_label = f"{meta['size_kb']} KB" if meta["exists"] else "—"
+        cfg = get_remote_config()
+        pull = get_last_pull_info()
+        counts = pull.get("table_counts") or {}
+        hours_n = counts.get("daily_study_hours", "—")
+        tests_n = counts.get("scheduled_tests", "—")
 
         self.body.controls.extend(
             [
-                section_title("Sync with computer"),
+                section_title("Pull from GitHub"),
                 ft.Container(
                     content=ft.Column(
                         [
                             ft.Text(
-                                "Your phone is the daily logger. When you sit at your PC:",
-                                weight=ft.FontWeight.BOLD,
-                                color=NAVY,
-                            ),
-                            ft.Text(
-                                "1. Open this Sync tab and tap Export\n"
-                                "2. Save the .db file (Downloads is easiest)\n"
-                                "3. Connect phone via USB or cloud drive\n"
-                                "4. On PC: open Streamlit → sidebar → Import phone data",
+                                "PC saves hours & tests into the git repo (`data/*.json`). "
+                                "Pull here to refresh this phone with the latest snapshot "
+                                "for quick memory and charts.",
                                 color="#4A5568",
                                 size=13,
+                            ),
+                            ft.Text(
+                                "⚠️ Pull replaces local hours, tests, targets, logbook & garden "
+                                "with the GitHub copy. Export phone logs first if you logged "
+                                "only on this device.",
+                                color="#C05621",
+                                size=12,
                             ),
                         ],
                         spacing=8,
@@ -1163,10 +1389,120 @@ class TrackerApp:
                 ),
                 ft.Row(
                     [
-                        metric_card("Database", size_label),
-                        metric_card("Last saved", updated),
+                        metric_card("Last pull", pull.get("pulled_at") or "never"),
+                        metric_card("PC export", pull.get("exported_at") or "—"),
                     ],
                     spacing=8,
+                ),
+                ft.Row(
+                    [
+                        metric_card("Hours rows", str(hours_n)),
+                        metric_card("Tests rows", str(tests_n)),
+                        metric_card("Local DB", size_label, updated),
+                    ],
+                    spacing=8,
+                ),
+            ]
+        )
+
+        repo_field = ft.TextField(
+            label="GitHub repo (owner/name)",
+            value=cfg.get("repo") or DEFAULT_GITHUB_REPO,
+            hint_text=DEFAULT_GITHUB_REPO,
+        )
+        branch_field = ft.TextField(
+            label="Branch",
+            value=cfg.get("branch") or DEFAULT_GITHUB_BRANCH,
+            hint_text=DEFAULT_GITHUB_BRANCH,
+        )
+        token_field = ft.TextField(
+            label="GitHub token (required if repo is private)",
+            value=cfg.get("token") or "",
+            password=True,
+            can_reveal_password=True,
+            hint_text="ghp_…  Contents: Read",
+        )
+
+        def save_github_settings(_):
+            try:
+                save_remote_config(
+                    repo=repo_field.value or DEFAULT_GITHUB_REPO,
+                    branch=branch_field.value or DEFAULT_GITHUB_BRANCH,
+                    token=token_field.value or "",
+                )
+                snack(self.page, "GitHub settings saved.")
+            except DatabaseError as exc:
+                snack(self.page, str(exc), "#C53030")
+
+        pulling = {"busy": False}
+
+        def pull_from_github(_):
+            if pulling["busy"]:
+                return
+            pulling["busy"] = True
+            snack(self.page, "Pulling latest data from GitHub…", ACCENT)
+            self.page.update()
+            try:
+                save_remote_config(
+                    repo=repo_field.value or DEFAULT_GITHUB_REPO,
+                    branch=branch_field.value or DEFAULT_GITHUB_BRANCH,
+                    token=token_field.value or "",
+                )
+                result = pull_and_import_from_github(
+                    repo=repo_field.value or DEFAULT_GITHUB_REPO,
+                    branch=branch_field.value or DEFAULT_GITHUB_BRANCH,
+                    token=token_field.value or "",
+                    make_backup=True,
+                    save_config=True,
+                )
+            except DatabaseError as exc:
+                snack(self.page, str(exc), "#C53030")
+                pulling["busy"] = False
+                return
+            except Exception as exc:
+                snack(self.page, f"Pull failed: {exc}", "#C53030")
+                pulling["busy"] = False
+                return
+            pulling["busy"] = False
+            counts_msg = result.get("counts") or {}
+            snack(
+                self.page,
+                f"Synced! Tests {counts_msg.get('scheduled_tests', 0)} · "
+                f"Hours {counts_msg.get('daily_study_hours', 0)} · "
+                f"export {result.get('exported_at') or 'ok'}",
+            )
+            self.refresh_tab()
+
+        self.body.controls.extend(
+            [
+                section_title("GitHub connection"),
+                repo_field,
+                branch_field,
+                token_field,
+                ft.Row(
+                    [
+                        ft.ElevatedButton(
+                            "Pull latest from GitHub",
+                            icon=ft.Icons.CLOUD_DOWNLOAD,
+                            bgcolor=PRIMARY,
+                            color="#FFFFFF",
+                            on_click=pull_from_github,
+                        ),
+                        ft.OutlinedButton(
+                            "Save settings",
+                            icon=ft.Icons.SAVE,
+                            on_click=save_github_settings,
+                        ),
+                    ],
+                    wrap=True,
+                    spacing=8,
+                ),
+                ft.Text(
+                    "Create a fine-grained token at github.com/settings/tokens with "
+                    "read access to this repo if it is private. Public repos work without a token.",
+                    size=12,
+                    italic=True,
+                    color="#718096",
                 ),
             ]
         )
@@ -1195,16 +1531,21 @@ class TrackerApp:
                 return
             snack(
                 self.page,
-                f"Copy saved in app folder. Use Export above to move it to Downloads.",
+                "Copy saved in app folder. Use Export above to move it to Downloads.",
             )
 
         self.body.controls.extend(
             [
-                section_title("Export for PC"),
+                section_title("Export phone → PC (optional)"),
+                ft.Text(
+                    "Still available if you log on the phone and want to merge back to the PC.",
+                    size=12,
+                    color="#718096",
+                ),
                 ft.ElevatedButton(
                     "Export sync file",
                     icon=ft.Icons.UPLOAD_FILE,
-                    bgcolor=PRIMARY,
+                    bgcolor=ACCENT,
                     color="#FFFFFF",
                     on_click=export_for_pc,
                 ),
@@ -1212,13 +1553,6 @@ class TrackerApp:
                     "Backup inside app",
                     icon=ft.Icons.SAVE_ALT,
                     on_click=export_local_copy,
-                ),
-                ft.Text(
-                    "Tip: export after logging each day (or whenever you open your PC). "
-                    "Your PC keeps a backup of its old data before each import.",
-                    size=12,
-                    italic=True,
-                    color="#718096",
                 ),
             ]
         )

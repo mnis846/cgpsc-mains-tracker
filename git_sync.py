@@ -16,8 +16,9 @@ from database import DatabaseError, get_db_path
 
 REPO_ROOT = Path(__file__).resolve().parent
 EXPORT_DIR = REPO_ROOT / "data"
-STATE_FILE = REPO_ROOT / ".git-sync-state.json"
-LOG_FILE = REPO_ROOT / "git-sync.log"
+LOG_DIR = REPO_ROOT / "logs"
+STATE_FILE = LOG_DIR / "git-sync-state.json"
+LOG_FILE = LOG_DIR / "git-sync.log"
 
 # Idle background check — only a safety net; real syncs happen when you save data.
 BACKGROUND_POLL_SECONDS = 10 * 3600
@@ -30,11 +31,17 @@ TABLE_QUERIES = {
     ),
     "daily_study_hours": "SELECT * FROM daily_study_hours ORDER BY log_date",
     "scheduled_tests": "SELECT * FROM scheduled_tests ORDER BY test_no, id",
+    "prelims_scheduled_tests": (
+        "SELECT * FROM prelims_scheduled_tests ORDER BY test_no, id"
+    ),
     "app_settings": "SELECT * FROM app_settings ORDER BY key",
     "garden_events": "SELECT * FROM garden_events ORDER BY event_date, id",
     "study_activity_logs": (
         "SELECT * FROM study_activity_logs ORDER BY log_date, created_at, id"
     ),
+    "atlas_nodes": "SELECT * FROM atlas_nodes ORDER BY kind, sort_order, id",
+    "atlas_progress": "SELECT * FROM atlas_progress ORDER BY node_id",
+    "atlas_study_log": "SELECT * FROM atlas_study_log ORDER BY id",
 }
 
 _lock = threading.Lock()
@@ -43,7 +50,7 @@ _data_changed = threading.Event()
 _last_attempt_monotonic = 0.0
 _status = {
     "state": "idle",
-    "message": "Waiting for internet",
+    "message": "Ready — will sync when you save data",
     "last_success": None,
     "last_attempt": None,
 }
@@ -56,6 +63,7 @@ def _utc_now() -> str:
 def _write_log(message: str) -> None:
     line = f"{_utc_now()} {message}"
     try:
+        LOG_DIR.mkdir(parents=True, exist_ok=True)
         with LOG_FILE.open("a", encoding="utf-8") as handle:
             handle.write(line + "\n")
     except OSError:
@@ -256,11 +264,23 @@ def notify_data_changed() -> None:
 
 def get_sync_status() -> dict:
     state = _load_state()
+    online = is_online(timeout=1.5)
+    last_success = state.get("last_success") or _status.get("last_success")
+    message = _status["message"]
+    # Idle default is not useful once we know connectivity + last push history.
+    if _status["state"] == "idle":
+        if not online:
+            message = "Offline — will retry when online"
+        elif last_success:
+            message = f"Last synced: {last_success}"
+        else:
+            message = "Ready — will sync when you save data"
     return {
         **_status,
-        "online": is_online(timeout=1.5),
+        "message": message,
+        "online": online,
         "export_dir": str(EXPORT_DIR),
-        "last_success": state.get("last_success") or _status.get("last_success"),
+        "last_success": last_success,
         "last_commit": state.get("last_commit"),
         "branch": state.get("branch") or _current_branch(),
     }

@@ -1,0 +1,45 @@
+{
+  "current_streak_days": 5,
+  "daily_goal_hours": 6.0,
+  "milestones": [
+    {
+      "id": 1,
+      "achieved_date": "2026-06-20",
+      "has_flowers": true,
+      "has_fruits": true,
+      "test_score": 72
+    },
+    {
+      "id": 2,
+      "achieved_date": "2026-06-28",
+      "has_flowers": true,
+      "has_fruits": true,
+      "test_score": 68
+    },
+    {
+      "id": 3,
+      "achieved_date": "2026-07-04",
+      "has_flowers": true,
+      "has_fruits": false,
+      "test_score": null
+    },
+    {
+      "id": 4,
+      "achieved_date": "2026-07-10",
+      "has_flowers": true,
+      "has_fruits": false,
+      "test_score": 55
+    },
+    {
+      "id": 5,
+      "achieved_date": "2026-07-15",
+      "has_flowers": false,
+      "has_fruits": false,
+      "test_score": null
+    }
+  ],
+  "active_tree": {
+    "progress_days": 1,
+    "wilted": false
+  }
+}
