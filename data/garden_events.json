@@ -1118,5 +1118,47 @@
     "event_type": "daily_goal",
     "xp_amount": 75,
     "message": "Hit your 6h daily goal!"
+  },
+  {
+    "id": 163,
+    "event_date": "2026-08-14 08:49:18",
+    "event_type": "atlas_map",
+    "xp_amount": 8,
+    "message": "Atlas · Jainism — Doctrine, Councils, Spread is now Mapped"
+  },
+  {
+    "id": 164,
+    "event_date": "2026-08-14 08:50:18",
+    "event_type": "atlas_revise",
+    "xp_amount": 10,
+    "message": "Atlas · Buddhism — Doctrine, Councils, Spread is now Held"
+  },
+  {
+    "id": 165,
+    "event_date": "2026-08-14 08:50:35",
+    "event_type": "atlas_revise",
+    "xp_amount": 10,
+    "message": "Atlas · Indus Valley Civilization is now Held"
+  },
+  {
+    "id": 166,
+    "event_date": "2026-08-14 08:50:51",
+    "event_type": "atlas_revise",
+    "xp_amount": 10,
+    "message": "Atlas · Sources of Ancient Indian History is now Held"
+  },
+  {
+    "id": 167,
+    "event_date": "2026-08-15 02:17:37",
+    "event_type": "checkin",
+    "xp_amount": 25,
+    "message": "Daily check-in — Manish showed up!"
+  },
+  {
+    "id": 168,
+    "event_date": "2026-08-15 02:17:37",
+    "event_type": "streak",
+    "xp_amount": 24,
+    "message": "3-day study streak bonus"
   }
 ]

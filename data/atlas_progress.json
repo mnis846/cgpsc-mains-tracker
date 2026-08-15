@@ -1,14 +1,47 @@
 [
   {
-    "node_id": 5,
-    "state": "scouted",
+    "node_id": 3,
+    "state": "held",
     "confidence": 3,
-    "last_studied": "2026-08-13",
-    "next_due": "2026-08-14",
+    "last_studied": "2026-08-14",
+    "next_due": "2026-08-17",
+    "revision_count": 1,
+    "study_count": 1,
+    "last_note": "",
+    "updated_at": "2026-08-14 08:50:51"
+  },
+  {
+    "node_id": 5,
+    "state": "held",
+    "confidence": 3,
+    "last_studied": "2026-08-14",
+    "next_due": "2026-08-17",
+    "revision_count": 1,
+    "study_count": 2,
+    "last_note": "",
+    "updated_at": "2026-08-14 08:50:35"
+  },
+  {
+    "node_id": 10,
+    "state": "mapped",
+    "confidence": 3,
+    "last_studied": "2026-08-14",
+    "next_due": "2026-08-15",
     "revision_count": 0,
     "study_count": 1,
     "last_note": "",
-    "updated_at": "2026-08-13 08:41:59"
+    "updated_at": "2026-08-14 08:49:18"
+  },
+  {
+    "node_id": 11,
+    "state": "held",
+    "confidence": 3,
+    "last_studied": "2026-08-14",
+    "next_due": "2026-08-17",
+    "revision_count": 1,
+    "study_count": 1,
+    "last_note": "",
+    "updated_at": "2026-08-14 08:50:18"
   },
   {
     "node_id": 46,
