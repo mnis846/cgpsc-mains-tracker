@@ -176,1003 +176,793 @@
   },
   {
     "id": 26,
-    "event_date": "2026-07-15 10:07:53",
-    "event_type": "hours",
-    "xp_amount": 195,
-    "message": "Logged 6.5h of study"
-  },
-  {
-    "id": 27,
     "event_date": "2026-07-15 10:07:54",
     "event_type": "daily_goal",
     "xp_amount": 75,
     "message": "Hit your 6h daily goal!"
   },
   {
-    "id": 28,
+    "id": 27,
     "event_date": "2026-07-16 02:49:51",
     "event_type": "checkin",
     "xp_amount": 25,
     "message": "Daily check-in — Manish showed up!"
   },
   {
-    "id": 29,
+    "id": 28,
     "event_date": "2026-07-16 02:49:51",
     "event_type": "streak",
     "xp_amount": 16,
     "message": "2-day study streak bonus"
   },
   {
+    "id": 29,
+    "event_date": "2026-07-16 12:42:54",
+    "event_type": "hours",
+    "xp_amount": 210,
+    "message": "Logged 7.0h of study"
+  },
+  {
     "id": 30,
-    "event_date": "2026-07-16 12:42:54",
-    "event_type": "hours",
-    "xp_amount": 210,
-    "message": "Logged 7.0h of study"
-  },
-  {
-    "id": 31,
-    "event_date": "2026-07-16 12:42:54",
-    "event_type": "hours",
-    "xp_amount": 210,
-    "message": "Logged 7.0h of study"
-  },
-  {
-    "id": 32,
     "event_date": "2026-07-16 12:42:55",
     "event_type": "daily_goal",
     "xp_amount": 75,
     "message": "Hit your 6h daily goal!"
   },
   {
-    "id": 33,
+    "id": 31,
     "event_date": "2026-07-16 14:08:04",
     "event_type": "all_targets",
     "xp_amount": 100,
     "message": "All targets resolved today!"
   },
   {
-    "id": 34,
+    "id": 32,
     "event_date": "2026-07-17 02:53:11",
     "event_type": "checkin",
     "xp_amount": 25,
     "message": "Daily check-in — Manish showed up!"
   },
   {
-    "id": 35,
+    "id": 33,
     "event_date": "2026-07-17 02:53:11",
     "event_type": "streak",
     "xp_amount": 24,
     "message": "3-day study streak bonus"
   },
   {
-    "id": 36,
+    "id": 34,
     "event_date": "2026-07-17 11:03:09",
     "event_type": "all_targets",
     "xp_amount": 100,
     "message": "All targets resolved today!"
   },
   {
-    "id": 37,
+    "id": 35,
     "event_date": "2026-07-17 11:07:43",
     "event_type": "hours",
     "xp_amount": 180,
     "message": "Logged 6.0h of study"
   },
   {
-    "id": 38,
-    "event_date": "2026-07-17 11:07:43",
-    "event_type": "hours",
-    "xp_amount": 180,
-    "message": "Logged 6.0h of study"
-  },
-  {
-    "id": 39,
+    "id": 36,
     "event_date": "2026-07-17 11:07:44",
     "event_type": "daily_goal",
     "xp_amount": 75,
     "message": "Hit your 6h daily goal!"
   },
   {
-    "id": 40,
+    "id": 37,
     "event_date": "2026-07-18 03:25:26",
     "event_type": "checkin",
     "xp_amount": 25,
     "message": "Daily check-in — Manish showed up!"
   },
   {
-    "id": 41,
+    "id": 38,
     "event_date": "2026-07-18 03:25:26",
     "event_type": "streak",
     "xp_amount": 32,
     "message": "4-day study streak bonus"
   },
   {
-    "id": 42,
+    "id": 39,
     "event_date": "2026-07-18 06:00:04",
     "event_type": "all_targets",
     "xp_amount": 100,
     "message": "All targets resolved today!"
   },
   {
-    "id": 43,
+    "id": 40,
     "event_date": "2026-07-18 06:00:15",
     "event_type": "hours",
     "xp_amount": 105,
     "message": "Logged 3.5h of study"
+  },
+  {
+    "id": 41,
+    "event_date": "2026-07-19 03:31:47",
+    "event_type": "checkin",
+    "xp_amount": 25,
+    "message": "Daily check-in — Manish showed up!"
+  },
+  {
+    "id": 42,
+    "event_date": "2026-07-19 03:31:47",
+    "event_type": "streak",
+    "xp_amount": 40,
+    "message": "5-day study streak bonus"
+  },
+  {
+    "id": 43,
+    "event_date": "2026-07-19 13:18:47",
+    "event_type": "hours",
+    "xp_amount": 60,
+    "message": "Logged 2.0h of study"
   },
   {
     "id": 44,
-    "event_date": "2026-07-18 06:00:15",
+    "event_date": "2026-07-19 13:19:38",
     "event_type": "hours",
-    "xp_amount": 105,
-    "message": "Logged 3.5h of study"
+    "xp_amount": 90,
+    "message": "Logged 3.0h of study"
   },
   {
     "id": 45,
-    "event_date": "2026-07-19 03:31:47",
+    "event_date": "2026-07-20 03:04:49",
     "event_type": "checkin",
     "xp_amount": 25,
     "message": "Daily check-in — Manish showed up!"
   },
   {
     "id": 46,
-    "event_date": "2026-07-19 03:31:47",
-    "event_type": "streak",
-    "xp_amount": 40,
-    "message": "5-day study streak bonus"
-  },
-  {
-    "id": 47,
-    "event_date": "2026-07-19 13:18:47",
-    "event_type": "hours",
-    "xp_amount": 60,
-    "message": "Logged 2.0h of study"
-  },
-  {
-    "id": 48,
-    "event_date": "2026-07-19 13:18:47",
-    "event_type": "hours",
-    "xp_amount": 60,
-    "message": "Logged 2.0h of study"
-  },
-  {
-    "id": 49,
-    "event_date": "2026-07-19 13:19:38",
-    "event_type": "hours",
-    "xp_amount": 90,
-    "message": "Logged 3.0h of study"
-  },
-  {
-    "id": 50,
-    "event_date": "2026-07-19 13:19:38",
-    "event_type": "hours",
-    "xp_amount": 90,
-    "message": "Logged 3.0h of study"
-  },
-  {
-    "id": 51,
-    "event_date": "2026-07-20 03:04:49",
-    "event_type": "checkin",
-    "xp_amount": 25,
-    "message": "Daily check-in — Manish showed up!"
-  },
-  {
-    "id": 52,
     "event_date": "2026-07-20 03:04:49",
     "event_type": "streak",
     "xp_amount": 48,
     "message": "6-day study streak bonus"
   },
   {
-    "id": 53,
+    "id": 47,
     "event_date": "2026-07-20 08:46:33",
     "event_type": "all_targets",
     "xp_amount": 100,
     "message": "All targets resolved today!"
   },
   {
-    "id": 54,
+    "id": 48,
     "event_date": "2026-07-20 08:47:06",
     "event_type": "hours",
     "xp_amount": 180,
     "message": "Logged 6.0h of study"
   },
   {
-    "id": 55,
-    "event_date": "2026-07-20 08:47:06",
-    "event_type": "hours",
-    "xp_amount": 180,
-    "message": "Logged 6.0h of study"
-  },
-  {
-    "id": 56,
+    "id": 49,
     "event_date": "2026-07-20 08:47:07",
     "event_type": "daily_goal",
     "xp_amount": 75,
     "message": "Hit your 6h daily goal!"
   },
   {
-    "id": 57,
+    "id": 50,
     "event_date": "2026-07-21 05:18:08",
     "event_type": "checkin",
     "xp_amount": 25,
     "message": "Daily check-in — Manish showed up!"
   },
   {
-    "id": 58,
+    "id": 51,
     "event_date": "2026-07-21 05:18:08",
     "event_type": "streak",
     "xp_amount": 56,
     "message": "7-day study streak bonus"
   },
   {
-    "id": 59,
+    "id": 52,
     "event_date": "2026-07-22 03:50:23",
     "event_type": "checkin",
     "xp_amount": 25,
     "message": "Daily check-in — Manish showed up!"
   },
   {
-    "id": 60,
+    "id": 53,
     "event_date": "2026-07-23 15:34:00",
     "event_type": "checkin",
     "xp_amount": 25,
     "message": "Daily check-in — Manish showed up!"
   },
   {
-    "id": 61,
+    "id": 54,
     "event_date": "2026-07-24 03:41:40",
     "event_type": "checkin",
     "xp_amount": 25,
     "message": "Daily check-in — Manish showed up!"
   },
   {
-    "id": 62,
+    "id": 55,
     "event_date": "2026-07-26 03:02:59",
     "event_type": "checkin",
     "xp_amount": 25,
     "message": "Daily check-in — Manish showed up!"
   },
   {
-    "id": 63,
+    "id": 56,
     "event_date": "2026-07-26 08:57:16",
     "event_type": "hours",
     "xp_amount": 180,
     "message": "Logged 6.0h of study"
   },
   {
-    "id": 64,
-    "event_date": "2026-07-26 08:57:16",
-    "event_type": "hours",
-    "xp_amount": 180,
-    "message": "Logged 6.0h of study"
-  },
-  {
-    "id": 65,
+    "id": 57,
     "event_date": "2026-07-26 08:57:17",
     "event_type": "daily_goal",
     "xp_amount": 75,
     "message": "Hit your 6h daily goal!"
   },
   {
-    "id": 66,
+    "id": 58,
     "event_date": "2026-07-26 10:41:55",
     "event_type": "all_targets",
     "xp_amount": 100,
     "message": "All targets resolved today!"
   },
   {
-    "id": 67,
+    "id": 59,
     "event_date": "2026-07-27 03:09:27",
     "event_type": "checkin",
     "xp_amount": 25,
     "message": "Daily check-in — Manish showed up!"
   },
   {
-    "id": 68,
+    "id": 60,
     "event_date": "2026-07-27 03:09:28",
     "event_type": "streak",
     "xp_amount": 8,
     "message": "1-day study streak bonus"
   },
   {
-    "id": 69,
+    "id": 61,
     "event_date": "2026-07-27 11:53:39",
     "event_type": "all_targets",
     "xp_amount": 100,
     "message": "All targets resolved today!"
   },
   {
-    "id": 70,
+    "id": 62,
     "event_date": "2026-07-28 03:07:46",
     "event_type": "checkin",
     "xp_amount": 25,
     "message": "Daily check-in — Manish showed up!"
   },
   {
-    "id": 71,
+    "id": 63,
     "event_date": "2026-07-28 11:20:34",
     "event_type": "all_targets",
     "xp_amount": 100,
     "message": "All targets resolved today!"
   },
   {
-    "id": 72,
+    "id": 64,
     "event_date": "2026-07-28 11:23:22",
     "event_type": "hours",
     "xp_amount": 172,
     "message": "Logged 5.75h of study"
   },
   {
-    "id": 73,
-    "event_date": "2026-07-28 11:23:22",
-    "event_type": "hours",
-    "xp_amount": 172,
-    "message": "Logged 5.75h of study"
-  },
-  {
-    "id": 74,
+    "id": 65,
     "event_date": "2026-07-29 03:48:15",
     "event_type": "checkin",
     "xp_amount": 25,
     "message": "Daily check-in — Manish showed up!"
   },
   {
-    "id": 75,
+    "id": 66,
     "event_date": "2026-07-29 03:48:15",
     "event_type": "streak",
     "xp_amount": 8,
     "message": "1-day study streak bonus"
   },
   {
-    "id": 76,
+    "id": 67,
     "event_date": "2026-07-29 09:33:47",
     "event_type": "all_targets",
     "xp_amount": 100,
     "message": "All targets resolved today!"
   },
   {
-    "id": 77,
+    "id": 68,
     "event_date": "2026-07-29 09:35:42",
     "event_type": "hours",
     "xp_amount": 180,
     "message": "Logged 6.0h of study"
   },
   {
-    "id": 78,
-    "event_date": "2026-07-29 09:35:43",
-    "event_type": "hours",
-    "xp_amount": 180,
-    "message": "Logged 6.0h of study"
-  },
-  {
-    "id": 79,
+    "id": 69,
     "event_date": "2026-07-29 09:35:43",
     "event_type": "daily_goal",
     "xp_amount": 75,
     "message": "Hit your 6h daily goal!"
   },
   {
-    "id": 80,
+    "id": 70,
     "event_date": "2026-07-30 03:23:35",
     "event_type": "checkin",
     "xp_amount": 25,
     "message": "Daily check-in — Manish showed up!"
   },
   {
-    "id": 81,
+    "id": 71,
     "event_date": "2026-07-30 03:23:35",
     "event_type": "streak",
     "xp_amount": 16,
     "message": "2-day study streak bonus"
   },
   {
-    "id": 82,
+    "id": 72,
     "event_date": "2026-07-30 15:37:36",
     "event_type": "all_targets",
     "xp_amount": 100,
     "message": "All targets resolved today!"
   },
   {
-    "id": 83,
+    "id": 73,
     "event_date": "2026-07-30 15:38:03",
     "event_type": "hours",
     "xp_amount": 187,
     "message": "Logged 6.25h of study"
   },
   {
-    "id": 84,
-    "event_date": "2026-07-30 15:38:03",
-    "event_type": "hours",
-    "xp_amount": 187,
-    "message": "Logged 6.25h of study"
-  },
-  {
-    "id": 85,
+    "id": 74,
     "event_date": "2026-07-30 15:38:04",
     "event_type": "daily_goal",
     "xp_amount": 75,
     "message": "Hit your 6h daily goal!"
   },
   {
-    "id": 86,
+    "id": 75,
     "event_date": "2026-07-31 03:41:30",
     "event_type": "checkin",
     "xp_amount": 25,
     "message": "Daily check-in — Manish showed up!"
   },
   {
-    "id": 87,
+    "id": 76,
     "event_date": "2026-07-31 03:41:30",
     "event_type": "streak",
     "xp_amount": 24,
     "message": "3-day study streak bonus"
   },
   {
-    "id": 88,
+    "id": 77,
     "event_date": "2026-07-31 09:20:49",
     "event_type": "all_targets",
     "xp_amount": 100,
     "message": "All targets resolved today!"
   },
   {
-    "id": 89,
+    "id": 78,
     "event_date": "2026-08-01 02:25:52",
     "event_type": "checkin",
     "xp_amount": 25,
     "message": "Daily check-in — Manish showed up!"
   },
   {
-    "id": 90,
+    "id": 79,
     "event_date": "2026-08-01 02:28:52",
     "event_type": "hours",
     "xp_amount": 142,
     "message": "Logged 4.75h of study"
   },
   {
-    "id": 91,
-    "event_date": "2026-08-01 02:28:52",
-    "event_type": "hours",
-    "xp_amount": 142,
-    "message": "Logged 4.75h of study"
-  },
-  {
-    "id": 92,
+    "id": 80,
     "event_date": "2026-08-01 10:42:39",
     "event_type": "all_targets",
     "xp_amount": 100,
     "message": "All targets resolved today!"
   },
   {
-    "id": 93,
+    "id": 81,
     "event_date": "2026-08-01 10:43:12",
     "event_type": "hours",
     "xp_amount": 187,
     "message": "Logged 6.25h of study"
   },
   {
-    "id": 94,
-    "event_date": "2026-08-01 10:43:12",
-    "event_type": "hours",
-    "xp_amount": 187,
-    "message": "Logged 6.25h of study"
-  },
-  {
-    "id": 95,
+    "id": 82,
     "event_date": "2026-08-01 10:43:13",
     "event_type": "daily_goal",
     "xp_amount": 75,
     "message": "Hit your 6h daily goal!"
   },
   {
-    "id": 96,
+    "id": 83,
     "event_date": "2026-08-02 02:34:18",
     "event_type": "checkin",
     "xp_amount": 25,
     "message": "Daily check-in — Manish showed up!"
   },
   {
-    "id": 97,
+    "id": 84,
     "event_date": "2026-08-02 02:34:18",
     "event_type": "streak",
     "xp_amount": 40,
     "message": "5-day study streak bonus"
   },
   {
-    "id": 98,
+    "id": 85,
     "event_date": "2026-08-03 08:54:16",
     "event_type": "checkin",
     "xp_amount": 25,
     "message": "Daily check-in — Manish showed up!"
   },
   {
-    "id": 99,
+    "id": 86,
     "event_date": "2026-08-03 13:33:55",
     "event_type": "hours",
     "xp_amount": 165,
     "message": "Logged 5.5h of study"
   },
   {
-    "id": 100,
-    "event_date": "2026-08-03 13:33:55",
-    "event_type": "hours",
-    "xp_amount": 165,
-    "message": "Logged 5.5h of study"
-  },
-  {
-    "id": 101,
+    "id": 87,
     "event_date": "2026-08-03 13:34:24",
     "event_type": "hours",
     "xp_amount": 142,
     "message": "Logged 4.75h of study"
   },
   {
-    "id": 102,
-    "event_date": "2026-08-03 13:34:24",
-    "event_type": "hours",
-    "xp_amount": 142,
-    "message": "Logged 4.75h of study"
-  },
-  {
-    "id": 103,
+    "id": 88,
     "event_date": "2026-08-04 03:08:30",
     "event_type": "checkin",
     "xp_amount": 25,
     "message": "Daily check-in — Manish showed up!"
   },
   {
-    "id": 104,
+    "id": 89,
     "event_date": "2026-08-04 03:08:30",
     "event_type": "streak",
     "xp_amount": 56,
     "message": "7-day study streak bonus"
   },
   {
-    "id": 105,
+    "id": 90,
     "event_date": "2026-08-04 08:59:02",
     "event_type": "hours",
     "xp_amount": 180,
     "message": "Logged 6.0h of study"
   },
   {
-    "id": 106,
-    "event_date": "2026-08-04 08:59:02",
-    "event_type": "hours",
-    "xp_amount": 180,
-    "message": "Logged 6.0h of study"
-  },
-  {
-    "id": 107,
+    "id": 91,
     "event_date": "2026-08-04 08:59:03",
     "event_type": "daily_goal",
     "xp_amount": 75,
     "message": "Hit your 6h daily goal!"
   },
   {
-    "id": 108,
+    "id": 92,
     "event_date": "2026-08-04 12:48:24",
     "event_type": "all_targets",
     "xp_amount": 100,
     "message": "All targets resolved today!"
   },
   {
-    "id": 109,
+    "id": 93,
     "event_date": "2026-08-05 02:54:11",
     "event_type": "checkin",
     "xp_amount": 25,
     "message": "Daily check-in — Manish showed up!"
   },
   {
-    "id": 110,
+    "id": 94,
     "event_date": "2026-08-05 02:54:11",
     "event_type": "streak",
     "xp_amount": 60,
     "message": "8-day study streak bonus"
   },
   {
-    "id": 111,
+    "id": 95,
     "event_date": "2026-08-05 10:42:17",
     "event_type": "all_targets",
     "xp_amount": 100,
     "message": "All targets resolved today!"
   },
   {
-    "id": 112,
+    "id": 96,
     "event_date": "2026-08-05 10:42:54",
     "event_type": "hours",
     "xp_amount": 180,
     "message": "Logged 6.0h of study"
   },
   {
-    "id": 113,
-    "event_date": "2026-08-05 10:42:54",
-    "event_type": "hours",
-    "xp_amount": 180,
-    "message": "Logged 6.0h of study"
-  },
-  {
-    "id": 114,
+    "id": 97,
     "event_date": "2026-08-05 10:42:54",
     "event_type": "daily_goal",
     "xp_amount": 75,
     "message": "Hit your 6h daily goal!"
   },
   {
-    "id": 115,
+    "id": 98,
     "event_date": "2026-08-06 03:42:47",
     "event_type": "checkin",
     "xp_amount": 25,
     "message": "Daily check-in — Manish showed up!"
   },
   {
-    "id": 116,
+    "id": 99,
     "event_date": "2026-08-06 03:42:47",
     "event_type": "streak",
     "xp_amount": 60,
     "message": "9-day study streak bonus"
   },
   {
-    "id": 117,
+    "id": 100,
     "event_date": "2026-08-06 03:44:01",
     "event_type": "hours",
     "xp_amount": 30,
     "message": "Logged 1.0h of study"
   },
   {
-    "id": 118,
-    "event_date": "2026-08-06 03:44:01",
-    "event_type": "hours",
-    "xp_amount": 30,
-    "message": "Logged 1.0h of study"
-  },
-  {
-    "id": 119,
+    "id": 101,
     "event_date": "2026-08-06 05:09:49",
     "event_type": "hours",
     "xp_amount": 30,
     "message": "Logged 1.0h of study"
   },
   {
-    "id": 120,
-    "event_date": "2026-08-06 05:09:49",
-    "event_type": "hours",
-    "xp_amount": 30,
-    "message": "Logged 1.0h of study"
-  },
-  {
-    "id": 121,
+    "id": 102,
     "event_date": "2026-08-06 09:22:22",
     "event_type": "hours",
     "xp_amount": 30,
     "message": "Logged 1.0h of study"
   },
   {
-    "id": 122,
-    "event_date": "2026-08-06 09:22:22",
-    "event_type": "hours",
-    "xp_amount": 30,
-    "message": "Logged 1.0h of study"
-  },
-  {
-    "id": 123,
+    "id": 103,
     "event_date": "2026-08-07 05:42:53",
     "event_type": "checkin",
     "xp_amount": 25,
     "message": "Daily check-in — Manish showed up!"
   },
   {
-    "id": 124,
+    "id": 104,
     "event_date": "2026-08-07 05:42:53",
     "event_type": "streak",
     "xp_amount": 60,
     "message": "10-day study streak bonus"
   },
   {
-    "id": 125,
+    "id": 105,
     "event_date": "2026-08-07 05:43:25",
     "event_type": "hours",
     "xp_amount": 75,
     "message": "Logged 2.5h of study"
   },
   {
-    "id": 126,
-    "event_date": "2026-08-07 05:43:25",
-    "event_type": "hours",
-    "xp_amount": 75,
-    "message": "Logged 2.5h of study"
-  },
-  {
-    "id": 127,
+    "id": 106,
     "event_date": "2026-08-07 05:43:47",
     "event_type": "hours",
     "xp_amount": 45,
     "message": "Logged 1.5h of study"
   },
   {
-    "id": 128,
-    "event_date": "2026-08-07 05:43:47",
-    "event_type": "hours",
-    "xp_amount": 45,
-    "message": "Logged 1.5h of study"
-  },
-  {
-    "id": 129,
+    "id": 107,
     "event_date": "2026-08-08 02:03:57",
     "event_type": "checkin",
     "xp_amount": 25,
     "message": "Daily check-in — Manish showed up!"
   },
   {
-    "id": 130,
+    "id": 108,
     "event_date": "2026-08-08 02:04:00",
     "event_type": "streak",
     "xp_amount": 60,
     "message": "11-day study streak bonus"
   },
   {
-    "id": 131,
+    "id": 109,
     "event_date": "2026-08-08 05:11:23",
     "event_type": "hours",
     "xp_amount": 30,
     "message": "Logged 1.0h of study"
   },
   {
-    "id": 132,
-    "event_date": "2026-08-08 05:11:23",
-    "event_type": "hours",
-    "xp_amount": 30,
-    "message": "Logged 1.0h of study"
-  },
-  {
-    "id": 133,
+    "id": 110,
     "event_date": "2026-08-08 07:52:23",
     "event_type": "hours",
     "xp_amount": 60,
     "message": "Logged 2.0h of study"
   },
   {
-    "id": 134,
-    "event_date": "2026-08-08 07:52:23",
-    "event_type": "hours",
-    "xp_amount": 60,
-    "message": "Logged 2.0h of study"
-  },
-  {
-    "id": 135,
+    "id": 111,
     "event_date": "2026-08-08 09:33:56",
     "event_type": "hours",
     "xp_amount": 52,
     "message": "Logged 1.75h of study"
   },
   {
-    "id": 136,
-    "event_date": "2026-08-08 09:33:57",
-    "event_type": "hours",
-    "xp_amount": 52,
-    "message": "Logged 1.75h of study"
-  },
-  {
-    "id": 137,
+    "id": 112,
     "event_date": "2026-08-09 02:29:44",
     "event_type": "checkin",
     "xp_amount": 25,
     "message": "Daily check-in — Manish showed up!"
   },
   {
-    "id": 138,
+    "id": 113,
     "event_date": "2026-08-09 02:29:44",
     "event_type": "streak",
     "xp_amount": 60,
     "message": "12-day study streak bonus"
   },
   {
-    "id": 139,
+    "id": 114,
     "event_date": "2026-08-10 09:30:42",
     "event_type": "checkin",
     "xp_amount": 25,
     "message": "Daily check-in — Manish showed up!"
   },
   {
-    "id": 140,
+    "id": 115,
     "event_date": "2026-08-10 09:31:17",
     "event_type": "hours",
     "xp_amount": 165,
     "message": "Logged 5.5h of study"
   },
   {
-    "id": 141,
-    "event_date": "2026-08-10 09:31:17",
-    "event_type": "hours",
-    "xp_amount": 165,
-    "message": "Logged 5.5h of study"
-  },
-  {
-    "id": 142,
+    "id": 116,
     "event_date": "2026-08-12 02:32:43",
     "event_type": "checkin",
     "xp_amount": 25,
     "message": "Daily check-in — Manish showed up!"
   },
   {
-    "id": 143,
+    "id": 117,
     "event_date": "2026-08-12 03:57:03",
     "event_type": "hours",
     "xp_amount": 45,
     "message": "Logged 1.5h of study"
   },
   {
-    "id": 144,
-    "event_date": "2026-08-12 03:57:03",
-    "event_type": "hours",
-    "xp_amount": 45,
-    "message": "Logged 1.5h of study"
-  },
-  {
-    "id": 145,
+    "id": 118,
     "event_date": "2026-08-12 10:48:48",
     "event_type": "hours",
     "xp_amount": 120,
     "message": "Logged 4.0h of study"
   },
   {
-    "id": 146,
-    "event_date": "2026-08-12 10:48:48",
-    "event_type": "hours",
-    "xp_amount": 120,
-    "message": "Logged 4.0h of study"
-  },
-  {
-    "id": 147,
+    "id": 119,
     "event_date": "2026-08-13 01:54:04",
     "event_type": "checkin",
     "xp_amount": 25,
     "message": "Daily check-in — Manish showed up!"
   },
   {
-    "id": 148,
+    "id": 120,
     "event_date": "2026-08-13 01:54:04",
     "event_type": "streak",
     "xp_amount": 8,
     "message": "1-day study streak bonus"
   },
   {
-    "id": 149,
+    "id": 121,
     "event_date": "2026-08-13 01:54:48",
     "event_type": "all_targets",
     "xp_amount": 100,
     "message": "All targets resolved today!"
   },
   {
-    "id": 150,
+    "id": 122,
     "event_date": "2026-08-13 01:55:07",
     "event_type": "hours",
     "xp_amount": 45,
     "message": "Logged 1.5h of study"
   },
   {
-    "id": 151,
-    "event_date": "2026-08-13 01:55:07",
-    "event_type": "hours",
-    "xp_amount": 45,
-    "message": "Logged 1.5h of study"
-  },
-  {
-    "id": 154,
+    "id": 123,
     "event_date": "2026-08-13 08:41:44",
     "event_type": "atlas_scout",
     "xp_amount": 12,
     "message": "Atlas · Carnatic Wars & Anglo-French Rivalry is now Scouted"
   },
   {
-    "id": 155,
+    "id": 124,
     "event_date": "2026-08-13 08:41:59",
     "event_type": "atlas_scout",
     "xp_amount": 12,
     "message": "Atlas · Indus Valley Civilization is now Scouted"
   },
   {
-    "id": 156,
+    "id": 125,
     "event_date": "2026-08-14 02:49:21",
     "event_type": "checkin",
     "xp_amount": 25,
     "message": "Daily check-in — Manish showed up!"
   },
   {
-    "id": 157,
+    "id": 126,
     "event_date": "2026-08-14 02:49:21",
     "event_type": "streak",
     "xp_amount": 16,
     "message": "2-day study streak bonus"
   },
   {
-    "id": 158,
+    "id": 127,
     "event_date": "2026-08-14 02:51:20",
     "event_type": "hours",
     "xp_amount": 97,
     "message": "Logged 3.25h of study"
   },
   {
-    "id": 159,
-    "event_date": "2026-08-14 02:51:20",
-    "event_type": "hours",
-    "xp_amount": 97,
-    "message": "Logged 3.25h of study"
-  },
-  {
-    "id": 160,
+    "id": 128,
     "event_date": "2026-08-14 08:48:09",
     "event_type": "hours",
     "xp_amount": 240,
     "message": "Logged 8.0h of study"
   },
   {
-    "id": 161,
-    "event_date": "2026-08-14 08:48:09",
-    "event_type": "hours",
-    "xp_amount": 240,
-    "message": "Logged 8.0h of study"
-  },
-  {
-    "id": 162,
+    "id": 129,
     "event_date": "2026-08-14 08:48:09",
     "event_type": "daily_goal",
     "xp_amount": 75,
     "message": "Hit your 6h daily goal!"
   },
   {
-    "id": 163,
+    "id": 130,
     "event_date": "2026-08-14 08:49:18",
     "event_type": "atlas_map",
     "xp_amount": 8,
     "message": "Atlas · Jainism — Doctrine, Councils, Spread is now Mapped"
   },
   {
-    "id": 164,
+    "id": 131,
     "event_date": "2026-08-14 08:50:18",
     "event_type": "atlas_revise",
     "xp_amount": 10,
     "message": "Atlas · Buddhism — Doctrine, Councils, Spread is now Held"
   },
   {
-    "id": 165,
+    "id": 132,
     "event_date": "2026-08-14 08:50:35",
     "event_type": "atlas_revise",
     "xp_amount": 10,
     "message": "Atlas · Indus Valley Civilization is now Held"
   },
   {
-    "id": 166,
+    "id": 133,
     "event_date": "2026-08-14 08:50:51",
     "event_type": "atlas_revise",
     "xp_amount": 10,
     "message": "Atlas · Sources of Ancient Indian History is now Held"
   },
   {
-    "id": 167,
+    "id": 134,
     "event_date": "2026-08-15 02:17:37",
     "event_type": "checkin",
     "xp_amount": 25,
     "message": "Daily check-in — Manish showed up!"
   },
   {
-    "id": 168,
+    "id": 135,
     "event_date": "2026-08-15 02:17:37",
     "event_type": "streak",
     "xp_amount": 24,
     "message": "3-day study streak bonus"
   },
   {
-    "id": 169,
+    "id": 136,
     "event_date": "2026-08-15 03:55:11",
     "event_type": "hours",
     "xp_amount": 52,
     "message": "Logged 1.75h of study"
   },
   {
-    "id": 170,
-    "event_date": "2026-08-15 03:55:11",
-    "event_type": "hours",
-    "xp_amount": 52,
-    "message": "Logged 1.75h of study"
+    "id": 137,
+    "event_date": "2026-08-16 02:35:08",
+    "event_type": "checkin",
+    "xp_amount": 25,
+    "message": "Daily check-in — Manish showed up!"
+  },
+  {
+    "id": 138,
+    "event_date": "2026-08-16 02:35:08",
+    "event_type": "streak",
+    "xp_amount": 32,
+    "message": "4-day study streak bonus"
   }
 ]
