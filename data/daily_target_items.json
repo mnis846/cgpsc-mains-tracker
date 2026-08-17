@@ -1384,5 +1384,38 @@
     "status": "Pending",
     "actual_hours": 0.0,
     "completion_notes": ""
+  },
+  {
+    "id": 127,
+    "plan_id": 35,
+    "description": "give test",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 0,
+    "status": "Pending",
+    "actual_hours": 0.0,
+    "completion_notes": ""
+  },
+  {
+    "id": 128,
+    "plan_id": 35,
+    "description": "revise all paper 3",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 1,
+    "status": "Pending",
+    "actual_hours": 0.0,
+    "completion_notes": ""
+  },
+  {
+    "id": 129,
+    "plan_id": 35,
+    "description": "review the test papers",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 2,
+    "status": "Pending",
+    "actual_hours": 0.0,
+    "completion_notes": ""
   }
 ]
