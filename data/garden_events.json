@@ -1013,5 +1013,19 @@
     "event_type": "all_targets",
     "xp_amount": 100,
     "message": "All targets resolved today!"
+  },
+  {
+    "id": 146,
+    "event_date": "2026-08-18 09:45:59",
+    "event_type": "hours",
+    "xp_amount": 210,
+    "message": "Logged 7.0h of study"
+  },
+  {
+    "id": 147,
+    "event_date": "2026-08-18 09:46:00",
+    "event_type": "daily_goal",
+    "xp_amount": 75,
+    "message": "Hit your 6h daily goal!"
   }
 ]
