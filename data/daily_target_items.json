@@ -1392,7 +1392,7 @@
     "planned_hours": 0.0,
     "paper_id": null,
     "order_index": 0,
-    "status": "Pending",
+    "status": "Done",
     "actual_hours": 0.0,
     "completion_notes": ""
   },
@@ -1403,7 +1403,7 @@
     "planned_hours": 0.0,
     "paper_id": null,
     "order_index": 1,
-    "status": "Pending",
+    "status": "Done",
     "actual_hours": 0.0,
     "completion_notes": ""
   },
@@ -1411,6 +1411,39 @@
     "id": 129,
     "plan_id": 35,
     "description": "review the test papers",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 2,
+    "status": "Skipped",
+    "actual_hours": 0.0,
+    "completion_notes": ""
+  },
+  {
+    "id": 130,
+    "plan_id": 36,
+    "description": "hindi",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 0,
+    "status": "Pending",
+    "actual_hours": 0.0,
+    "completion_notes": ""
+  },
+  {
+    "id": 131,
+    "plan_id": 36,
+    "description": "write hindi",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 1,
+    "status": "Pending",
+    "actual_hours": 0.0,
+    "completion_notes": ""
+  },
+  {
+    "id": 132,
+    "plan_id": 36,
+    "description": "economic survey",
     "planned_hours": 0.0,
     "paper_id": null,
     "order_index": 2,
