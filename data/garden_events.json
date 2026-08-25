@@ -1174,5 +1174,12 @@
     "event_type": "streak",
     "xp_amount": 56,
     "message": "7-day study streak bonus"
+  },
+  {
+    "id": 169,
+    "event_date": "2026-08-25 04:19:14",
+    "event_type": "hours",
+    "xp_amount": 30,
+    "message": "Logged 1.0h of study"
   }
 ]
