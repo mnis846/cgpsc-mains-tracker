@@ -1813,5 +1813,16 @@
     "status": "Skipped",
     "actual_hours": 0.0,
     "completion_notes": ""
+  },
+  {
+    "id": 166,
+    "plan_id": 44,
+    "description": "pub ad",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 3,
+    "status": "Pending",
+    "actual_hours": 0.0,
+    "completion_notes": ""
   }
 ]
