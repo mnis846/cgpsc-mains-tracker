@@ -1953,7 +1953,7 @@
     "planned_hours": 0.0,
     "paper_id": null,
     "order_index": 2,
-    "status": "Pending",
+    "status": "Done",
     "actual_hours": 0.0,
     "completion_notes": ""
   },
@@ -1975,7 +1975,7 @@
     "planned_hours": 0.0,
     "paper_id": null,
     "order_index": 4,
-    "status": "Pending",
+    "status": "Done",
     "actual_hours": 0.0,
     "completion_notes": ""
   }
