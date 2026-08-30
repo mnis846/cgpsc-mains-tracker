@@ -1876,7 +1876,7 @@
     "planned_hours": 0.0,
     "paper_id": null,
     "order_index": 0,
-    "status": "Pending",
+    "status": "Done",
     "actual_hours": 0.0,
     "completion_notes": ""
   },
@@ -1887,7 +1887,7 @@
     "planned_hours": 0.0,
     "paper_id": null,
     "order_index": 1,
-    "status": "Pending",
+    "status": "Done",
     "actual_hours": 0.0,
     "completion_notes": ""
   },
@@ -1898,7 +1898,7 @@
     "planned_hours": 0.0,
     "paper_id": null,
     "order_index": 2,
-    "status": "Pending",
+    "status": "Done",
     "actual_hours": 0.0,
     "completion_notes": ""
   },
@@ -1909,7 +1909,7 @@
     "planned_hours": 0.0,
     "paper_id": null,
     "order_index": 3,
-    "status": "Pending",
+    "status": "Done",
     "actual_hours": 0.0,
     "completion_notes": ""
   },
@@ -1917,6 +1917,61 @@
     "id": 175,
     "plan_id": 46,
     "description": "do one hard thing that makes you nervous",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 4,
+    "status": "Done",
+    "actual_hours": 0.0,
+    "completion_notes": ""
+  },
+  {
+    "id": 176,
+    "plan_id": 47,
+    "description": "indian history",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 0,
+    "status": "Pending",
+    "actual_hours": 0.0,
+    "completion_notes": ""
+  },
+  {
+    "id": 177,
+    "plan_id": 47,
+    "description": "pub ad",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 1,
+    "status": "Pending",
+    "actual_hours": 0.0,
+    "completion_notes": ""
+  },
+  {
+    "id": 178,
+    "plan_id": 47,
+    "description": "cg gs",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 2,
+    "status": "Pending",
+    "actual_hours": 0.0,
+    "completion_notes": ""
+  },
+  {
+    "id": 179,
+    "plan_id": 47,
+    "description": "chgarhi",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 3,
+    "status": "Pending",
+    "actual_hours": 0.0,
+    "completion_notes": ""
+  },
+  {
+    "id": 180,
+    "plan_id": 47,
+    "description": "something more",
     "planned_hours": 0.0,
     "paper_id": null,
     "order_index": 4,
