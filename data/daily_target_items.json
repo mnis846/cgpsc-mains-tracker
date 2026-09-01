@@ -2019,7 +2019,7 @@
     "planned_hours": 0.0,
     "paper_id": null,
     "order_index": 3,
-    "status": "Pending",
+    "status": "Done",
     "actual_hours": 0.0,
     "completion_notes": ""
   },
@@ -2031,6 +2031,61 @@
     "paper_id": null,
     "order_index": 4,
     "status": "Done",
+    "actual_hours": 0.0,
+    "completion_notes": ""
+  },
+  {
+    "id": 186,
+    "plan_id": 49,
+    "description": "chgarhi",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 0,
+    "status": "Pending",
+    "actual_hours": 0.0,
+    "completion_notes": ""
+  },
+  {
+    "id": 187,
+    "plan_id": 49,
+    "description": "give test",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 1,
+    "status": "Pending",
+    "actual_hours": 0.0,
+    "completion_notes": ""
+  },
+  {
+    "id": 188,
+    "plan_id": 49,
+    "description": "read polity",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 2,
+    "status": "Pending",
+    "actual_hours": 0.0,
+    "completion_notes": ""
+  },
+  {
+    "id": 189,
+    "plan_id": 49,
+    "description": "indian history",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 3,
+    "status": "Done",
+    "actual_hours": 0.0,
+    "completion_notes": ""
+  },
+  {
+    "id": 190,
+    "plan_id": 49,
+    "description": "do something hard",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 4,
+    "status": "Pending",
     "actual_hours": 0.0,
     "completion_notes": ""
   }
