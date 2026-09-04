@@ -2220,5 +2220,60 @@
     "status": "Done",
     "actual_hours": 0.0,
     "completion_notes": ""
+  },
+  {
+    "id": 203,
+    "plan_id": 52,
+    "description": "indian history",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 0,
+    "status": "Pending",
+    "actual_hours": 0.0,
+    "completion_notes": ""
+  },
+  {
+    "id": 204,
+    "plan_id": 52,
+    "description": "polity",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 1,
+    "status": "Pending",
+    "actual_hours": 0.0,
+    "completion_notes": ""
+  },
+  {
+    "id": 205,
+    "plan_id": 52,
+    "description": "chgarhi",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 2,
+    "status": "Pending",
+    "actual_hours": 0.0,
+    "completion_notes": ""
+  },
+  {
+    "id": 206,
+    "plan_id": 52,
+    "description": "cg gs",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 3,
+    "status": "Pending",
+    "actual_hours": 0.0,
+    "completion_notes": ""
+  },
+  {
+    "id": 207,
+    "plan_id": 52,
+    "description": "science",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 4,
+    "status": "Pending",
+    "actual_hours": 0.0,
+    "completion_notes": ""
   }
 ]
