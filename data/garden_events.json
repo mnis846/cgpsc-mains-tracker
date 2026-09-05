@@ -1671,5 +1671,12 @@
     "event_type": "all_targets",
     "xp_amount": 100,
     "message": "All targets resolved today!"
+  },
+  {
+    "id": 240,
+    "event_date": "2026-09-05 13:20:12",
+    "event_type": "hours",
+    "xp_amount": 30,
+    "message": "Logged 1.0h of study"
   }
 ]
