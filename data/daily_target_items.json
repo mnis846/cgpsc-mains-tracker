@@ -2275,5 +2275,60 @@
     "status": "Skipped",
     "actual_hours": 0.0,
     "completion_notes": ""
+  },
+  {
+    "id": 208,
+    "plan_id": 53,
+    "description": "indian history",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 0,
+    "status": "Pending",
+    "actual_hours": 0.0,
+    "completion_notes": ""
+  },
+  {
+    "id": 209,
+    "plan_id": 53,
+    "description": "hindi+chgarhi",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 1,
+    "status": "Pending",
+    "actual_hours": 0.0,
+    "completion_notes": ""
+  },
+  {
+    "id": 210,
+    "plan_id": 53,
+    "description": "give test",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 2,
+    "status": "Pending",
+    "actual_hours": 0.0,
+    "completion_notes": ""
+  },
+  {
+    "id": 211,
+    "plan_id": 53,
+    "description": "science",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 3,
+    "status": "Pending",
+    "actual_hours": 0.0,
+    "completion_notes": ""
+  },
+  {
+    "id": 212,
+    "plan_id": 53,
+    "description": "do something hard",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 4,
+    "status": "Pending",
+    "actual_hours": 0.0,
+    "completion_notes": ""
   }
 ]
