@@ -376,5 +376,12 @@
     "evening_reflection": "",
     "created_at": "2026-09-06 06:26:06",
     "updated_at": "2026-09-06 06:26:10"
+  },
+  {
+    "id": 55,
+    "plan_date": "2026-09-07",
+    "evening_reflection": "",
+    "created_at": "2026-09-07 01:36:49",
+    "updated_at": "2026-09-07 01:36:49"
   }
 ]
