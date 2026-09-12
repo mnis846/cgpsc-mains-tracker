@@ -151,5 +151,14 @@
     "duration_hours": null,
     "created_at": "2026-08-24 10:28:47",
     "updated_at": "2026-08-24 10:28:47"
+  },
+  {
+    "id": 18,
+    "log_date": "2026-09-12",
+    "subject": "General / Mixed",
+    "activity": "do one thing for revision whatever you reading studying make a habbit writing it down at the end of the of it go with it note whatever you feel imp or you might forget then in the morning revise it after the gym",
+    "duration_hours": null,
+    "created_at": "2026-09-12 02:54:53",
+    "updated_at": "2026-09-12 02:54:53"
   }
 ]
