@@ -1923,5 +1923,19 @@
     "event_type": "hours",
     "xp_amount": 60,
     "message": "Logged 2.0h of study"
+  },
+  {
+    "id": 276,
+    "event_date": "2026-09-12 02:46:48",
+    "event_type": "checkin",
+    "xp_amount": 25,
+    "message": "Daily check-in — Manish showed up!"
+  },
+  {
+    "id": 277,
+    "event_date": "2026-09-12 02:46:48",
+    "event_type": "streak",
+    "xp_amount": 60,
+    "message": "25-day study streak bonus"
   }
 ]

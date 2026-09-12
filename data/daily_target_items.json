@@ -2635,7 +2635,7 @@
     "planned_hours": 0.0,
     "paper_id": null,
     "order_index": 1,
-    "status": "Pending",
+    "status": "Done",
     "actual_hours": 0.0,
     "completion_notes": ""
   },
@@ -2657,6 +2657,61 @@
     "planned_hours": 0.0,
     "paper_id": null,
     "order_index": 3,
+    "status": "Done",
+    "actual_hours": 0.0,
+    "completion_notes": ""
+  },
+  {
+    "id": 243,
+    "plan_id": 60,
+    "description": "csat",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 0,
+    "status": "Pending",
+    "actual_hours": 0.0,
+    "completion_notes": ""
+  },
+  {
+    "id": 244,
+    "plan_id": 60,
+    "description": "give test",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 1,
+    "status": "Pending",
+    "actual_hours": 0.0,
+    "completion_notes": ""
+  },
+  {
+    "id": 245,
+    "plan_id": 60,
+    "description": "indian history complete the ancient part - revise",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 2,
+    "status": "Pending",
+    "actual_hours": 0.0,
+    "completion_notes": ""
+  },
+  {
+    "id": 246,
+    "plan_id": 60,
+    "description": "cg history do kalchuri",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 3,
+    "status": "Pending",
+    "actual_hours": 0.0,
+    "completion_notes": ""
+  },
+  {
+    "id": 247,
+    "plan_id": 60,
+    "description": "science",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 4,
     "status": "Pending",
     "actual_hours": 0.0,
     "completion_notes": ""
