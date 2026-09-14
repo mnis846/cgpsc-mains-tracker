@@ -2014,5 +2014,12 @@
     "event_type": "hours",
     "xp_amount": 37,
     "message": "Logged 1.25h of study"
+  },
+  {
+    "id": 289,
+    "event_date": "2026-09-14 10:17:47",
+    "event_type": "hours",
+    "xp_amount": 30,
+    "message": "Logged 1.0h of study"
   }
 ]
