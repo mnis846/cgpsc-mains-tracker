@@ -2252,5 +2252,12 @@
     "event_type": "hours",
     "xp_amount": 30,
     "message": "Logged 1.0h of study"
+  },
+  {
+    "id": 323,
+    "event_date": "2026-09-22 13:47:29",
+    "event_type": "all_targets",
+    "xp_amount": 100,
+    "message": "All targets resolved today!"
   }
 ]
