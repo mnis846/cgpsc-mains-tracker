@@ -1,8 +1,8 @@
 {
-  "exported_at": "2026-09-27 09:18:21 UTC",
+  "exported_at": "2026-09-27 09:18:33 UTC",
   "source_db": "C:\\Projects\\cgpsc-mains-tracker\\cgpsc_mains_tracker.db",
   "source_db_bytes": 233472,
-  "source_db_mtime": "2026-09-27 09:18:17 UTC",
+  "source_db_mtime": "2026-09-27 09:18:27 UTC",
   "table_counts": {
     "daily_plans": 70,
     "daily_target_items": 299,
