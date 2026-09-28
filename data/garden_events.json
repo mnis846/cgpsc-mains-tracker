@@ -2427,5 +2427,26 @@
     "event_type": "daily_goal",
     "xp_amount": 75,
     "message": "Hit your 6h daily goal!"
+  },
+  {
+    "id": 348,
+    "event_date": "2026-09-28 01:56:38",
+    "event_type": "checkin",
+    "xp_amount": 25,
+    "message": "Daily check-in — Manish showed up!"
+  },
+  {
+    "id": 349,
+    "event_date": "2026-09-28 01:56:38",
+    "event_type": "streak",
+    "xp_amount": 60,
+    "message": "9-day study streak bonus"
+  },
+  {
+    "id": 350,
+    "event_date": "2026-09-28 05:13:53",
+    "event_type": "hours",
+    "xp_amount": 75,
+    "message": "Logged 2.5h of study"
   }
 ]
