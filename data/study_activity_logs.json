@@ -160,5 +160,14 @@
     "duration_hours": null,
     "created_at": "2026-09-12 02:54:53",
     "updated_at": "2026-09-12 02:54:53"
+  },
+  {
+    "id": 19,
+    "log_date": "2026-09-29",
+    "subject": "General / Mixed",
+    "activity": "had to give more time and be consistent  got to maintain the base level study hours 6 hrs , i understand its not high time but from oct its gonn be that",
+    "duration_hours": null,
+    "created_at": "2026-09-29 04:04:36",
+    "updated_at": "2026-09-29 04:04:36"
   }
 ]
