@@ -3716,5 +3716,71 @@
     "status": "Pending",
     "actual_hours": 0.0,
     "completion_notes": ""
+  },
+  {
+    "id": 659,
+    "plan_id": 79,
+    "description": "current affairs",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 0,
+    "status": "Pending",
+    "actual_hours": 0.0,
+    "completion_notes": ""
+  },
+  {
+    "id": 660,
+    "plan_id": 79,
+    "description": "paper 6 revision",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 1,
+    "status": "Pending",
+    "actual_hours": 0.0,
+    "completion_notes": ""
+  },
+  {
+    "id": 661,
+    "plan_id": 79,
+    "description": "indian gs",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 2,
+    "status": "Pending",
+    "actual_hours": 0.0,
+    "completion_notes": ""
+  },
+  {
+    "id": 662,
+    "plan_id": 79,
+    "description": "cg gs",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 3,
+    "status": "Pending",
+    "actual_hours": 0.0,
+    "completion_notes": ""
+  },
+  {
+    "id": 663,
+    "plan_id": 79,
+    "description": "essay",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 4,
+    "status": "Pending",
+    "actual_hours": 0.0,
+    "completion_notes": ""
+  },
+  {
+    "id": 664,
+    "plan_id": 79,
+    "description": "do something hard",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 5,
+    "status": "Pending",
+    "actual_hours": 0.0,
+    "completion_notes": ""
   }
 ]
