@@ -3782,5 +3782,82 @@
     "status": "Done",
     "actual_hours": 0.0,
     "completion_notes": ""
+  },
+  {
+    "id": 677,
+    "plan_id": 80,
+    "description": "paper 6 revision",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 0,
+    "status": "Pending",
+    "actual_hours": 0.0,
+    "completion_notes": ""
+  },
+  {
+    "id": 678,
+    "plan_id": 80,
+    "description": "essay",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 1,
+    "status": "Pending",
+    "actual_hours": 0.0,
+    "completion_notes": ""
+  },
+  {
+    "id": 679,
+    "plan_id": 80,
+    "description": "aptitude",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 2,
+    "status": "Pending",
+    "actual_hours": 0.0,
+    "completion_notes": ""
+  },
+  {
+    "id": 680,
+    "plan_id": 80,
+    "description": "reasoning",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 3,
+    "status": "Pending",
+    "actual_hours": 0.0,
+    "completion_notes": ""
+  },
+  {
+    "id": 681,
+    "plan_id": 80,
+    "description": "indian gs",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 4,
+    "status": "Pending",
+    "actual_hours": 0.0,
+    "completion_notes": ""
+  },
+  {
+    "id": 682,
+    "plan_id": 80,
+    "description": "cg gs",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 5,
+    "status": "Pending",
+    "actual_hours": 0.0,
+    "completion_notes": ""
+  },
+  {
+    "id": 683,
+    "plan_id": 80,
+    "description": "current affairs",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 6,
+    "status": "Pending",
+    "actual_hours": 0.0,
+    "completion_notes": ""
   }
 ]
