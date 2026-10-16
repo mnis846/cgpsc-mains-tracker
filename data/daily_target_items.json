@@ -3966,7 +3966,7 @@
     "planned_hours": 0.0,
     "paper_id": null,
     "order_index": 0,
-    "status": "Pending",
+    "status": "Done",
     "actual_hours": 0.0,
     "completion_notes": ""
   },
@@ -3977,7 +3977,7 @@
     "planned_hours": 0.0,
     "paper_id": null,
     "order_index": 1,
-    "status": "Pending",
+    "status": "Done",
     "actual_hours": 0.0,
     "completion_notes": ""
   },
@@ -3988,7 +3988,7 @@
     "planned_hours": 0.0,
     "paper_id": null,
     "order_index": 2,
-    "status": "Pending",
+    "status": "Done",
     "actual_hours": 0.0,
     "completion_notes": ""
   },
@@ -4010,6 +4010,83 @@
     "planned_hours": 0.0,
     "paper_id": null,
     "order_index": 4,
+    "status": "Done",
+    "actual_hours": 0.0,
+    "completion_notes": ""
+  },
+  {
+    "id": 743,
+    "plan_id": 83,
+    "description": "current",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 0,
+    "status": "Pending",
+    "actual_hours": 0.0,
+    "completion_notes": ""
+  },
+  {
+    "id": 744,
+    "plan_id": 83,
+    "description": "aptitude",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 1,
+    "status": "Pending",
+    "actual_hours": 0.0,
+    "completion_notes": ""
+  },
+  {
+    "id": 745,
+    "plan_id": 83,
+    "description": "indian gs",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 2,
+    "status": "Pending",
+    "actual_hours": 0.0,
+    "completion_notes": ""
+  },
+  {
+    "id": 746,
+    "plan_id": 83,
+    "description": "cg gs",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 3,
+    "status": "Pending",
+    "actual_hours": 0.0,
+    "completion_notes": ""
+  },
+  {
+    "id": 747,
+    "plan_id": 83,
+    "description": "eco survey",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 4,
+    "status": "Pending",
+    "actual_hours": 0.0,
+    "completion_notes": ""
+  },
+  {
+    "id": 748,
+    "plan_id": 83,
+    "description": "hindi",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 5,
+    "status": "Pending",
+    "actual_hours": 0.0,
+    "completion_notes": ""
+  },
+  {
+    "id": 749,
+    "plan_id": 83,
+    "description": "pyq",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 6,
     "status": "Pending",
     "actual_hours": 0.0,
     "completion_notes": ""

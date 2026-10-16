@@ -3001,5 +3001,96 @@
     "event_type": "hours",
     "xp_amount": 60,
     "message": "Logged 2.0h of study"
+  },
+  {
+    "id": 614,
+    "event_date": "2026-10-11 15:13:28",
+    "event_type": "hours",
+    "xp_amount": 60,
+    "message": "Logged 2.0h of study"
+  },
+  {
+    "id": 615,
+    "event_date": "2026-10-11 15:13:28",
+    "event_type": "hours",
+    "xp_amount": 60,
+    "message": "Logged 2.0h of study"
+  },
+  {
+    "id": 616,
+    "event_date": "2026-10-11 15:13:32",
+    "event_type": "hours",
+    "xp_amount": 45,
+    "message": "Logged 1.5h of study"
+  },
+  {
+    "id": 617,
+    "event_date": "2026-10-11 15:13:32",
+    "event_type": "hours",
+    "xp_amount": 45,
+    "message": "Logged 1.5h of study"
+  },
+  {
+    "id": 618,
+    "event_date": "2026-10-12 01:47:32",
+    "event_type": "checkin",
+    "xp_amount": 25,
+    "message": "Daily check-in — Manish showed up!"
+  },
+  {
+    "id": 619,
+    "event_date": "2026-10-12 01:47:32",
+    "event_type": "streak",
+    "xp_amount": 48,
+    "message": "6-day study streak bonus"
+  },
+  {
+    "id": 620,
+    "event_date": "2026-10-12 01:52:58",
+    "event_type": "hours",
+    "xp_amount": 52,
+    "message": "Logged 1.75h of study"
+  },
+  {
+    "id": 621,
+    "event_date": "2026-10-12 01:52:58",
+    "event_type": "hours",
+    "xp_amount": 52,
+    "message": "Logged 1.75h of study"
+  },
+  {
+    "id": 622,
+    "event_date": "2026-10-13 02:30:33",
+    "event_type": "checkin",
+    "xp_amount": 25,
+    "message": "Daily check-in — Manish showed up!"
+  },
+  {
+    "id": 623,
+    "event_date": "2026-10-13 02:30:33",
+    "event_type": "streak",
+    "xp_amount": 56,
+    "message": "7-day study streak bonus"
+  },
+  {
+    "id": 624,
+    "event_date": "2026-10-16 05:11:41",
+    "event_type": "checkin",
+    "xp_amount": 25,
+    "message": "Daily check-in — Manish showed up!"
+  },
+  {
+    "id": 625,
+    "event_date": "2026-10-16 05:11:58",
+    "event_type": "hours",
+    "xp_amount": 97,
+    "message": "Logged 3.25h of study"
+  },
+  {
+    "id": 626,
+    "event_date": "2026-10-16 05:11:58",
+    "event_type": "hours",
+    "xp_amount": 97,
+    "message": "Logged 3.25h of study"
   }
 ]
