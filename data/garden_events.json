@@ -3092,5 +3092,33 @@
     "event_type": "hours",
     "xp_amount": 97,
     "message": "Logged 3.25h of study"
+  },
+  {
+    "id": 627,
+    "event_date": "2026-10-22 16:45:54",
+    "event_type": "checkin",
+    "xp_amount": 25,
+    "message": "Daily check-in — Manish showed up!"
+  },
+  {
+    "id": 628,
+    "event_date": "2026-10-23 01:34:13",
+    "event_type": "checkin",
+    "xp_amount": 25,
+    "message": "Daily check-in — Manish showed up!"
+  },
+  {
+    "id": 629,
+    "event_date": "2026-10-23 01:34:51",
+    "event_type": "hours",
+    "xp_amount": 60,
+    "message": "Logged 2.0h of study"
+  },
+  {
+    "id": 630,
+    "event_date": "2026-10-23 01:34:51",
+    "event_type": "hours",
+    "xp_amount": 60,
+    "message": "Logged 2.0h of study"
   }
 ]
