@@ -3141,5 +3141,19 @@
     "event_type": "all_targets",
     "xp_amount": 100,
     "message": "All targets resolved today!"
+  },
+  {
+    "id": 634,
+    "event_date": "2026-10-23 13:38:58",
+    "event_type": "hours",
+    "xp_amount": 120,
+    "message": "Logged 4.0h of study"
+  },
+  {
+    "id": 635,
+    "event_date": "2026-10-23 13:38:58",
+    "event_type": "hours",
+    "xp_amount": 120,
+    "message": "Logged 4.0h of study"
   }
 ]
