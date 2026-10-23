@@ -4090,5 +4090,49 @@
     "status": "Pending",
     "actual_hours": 0.0,
     "completion_notes": ""
+  },
+  {
+    "id": 750,
+    "plan_id": 84,
+    "description": "aptitude",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 0,
+    "status": "Pending",
+    "actual_hours": 0.0,
+    "completion_notes": ""
+  },
+  {
+    "id": 751,
+    "plan_id": 84,
+    "description": "cg gs",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 1,
+    "status": "Pending",
+    "actual_hours": 0.0,
+    "completion_notes": ""
+  },
+  {
+    "id": 752,
+    "plan_id": 84,
+    "description": "indian gs",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 2,
+    "status": "Pending",
+    "actual_hours": 0.0,
+    "completion_notes": ""
+  },
+  {
+    "id": 753,
+    "plan_id": 84,
+    "description": "current and other stuff",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 3,
+    "status": "Pending",
+    "actual_hours": 0.0,
+    "completion_notes": ""
   }
 ]
