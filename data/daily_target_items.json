@@ -4164,7 +4164,7 @@
     "planned_hours": 0.0,
     "paper_id": null,
     "order_index": 0,
-    "status": "Pending",
+    "status": "Done",
     "actual_hours": 0.0,
     "completion_notes": ""
   },
@@ -4175,7 +4175,7 @@
     "planned_hours": 0.0,
     "paper_id": null,
     "order_index": 1,
-    "status": "Pending",
+    "status": "Skipped",
     "actual_hours": 0.0,
     "completion_notes": ""
   },
@@ -4186,7 +4186,7 @@
     "planned_hours": 0.0,
     "paper_id": null,
     "order_index": 2,
-    "status": "Pending",
+    "status": "Skipped",
     "actual_hours": 0.0,
     "completion_notes": ""
   },
@@ -4197,6 +4197,28 @@
     "planned_hours": 0.0,
     "paper_id": null,
     "order_index": 3,
+    "status": "Done",
+    "actual_hours": 0.0,
+    "completion_notes": ""
+  },
+  {
+    "id": 777,
+    "plan_id": 87,
+    "description": "prepare essay",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 0,
+    "status": "Pending",
+    "actual_hours": 0.0,
+    "completion_notes": ""
+  },
+  {
+    "id": 778,
+    "plan_id": 87,
+    "description": "give test",
+    "planned_hours": 0.0,
+    "paper_id": null,
+    "order_index": 1,
     "status": "Pending",
     "actual_hours": 0.0,
     "completion_notes": ""
