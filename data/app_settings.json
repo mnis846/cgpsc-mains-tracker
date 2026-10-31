@@ -21,7 +21,7 @@
   },
   {
     "key": "garden_xp",
-    "value": "40548"
+    "value": "40743"
   },
   {
     "key": "github_token",
@@ -41,11 +41,11 @@
   },
   {
     "key": "last_garden_daily_goal",
-    "value": "2026-10-30"
+    "value": "2026-10-31"
   },
   {
     "key": "last_harvest_tier",
-    "value": "grove"
+    "value": "bloom"
   },
   {
     "key": "max_unlocked_trees",
