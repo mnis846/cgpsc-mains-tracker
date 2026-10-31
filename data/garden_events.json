@@ -3449,5 +3449,12 @@
     "event_type": "streak",
     "xp_amount": 60,
     "message": "8-day study streak bonus"
+  },
+  {
+    "id": 678,
+    "event_date": "2026-10-31 10:40:59",
+    "event_type": "all_targets",
+    "xp_amount": 100,
+    "message": "All targets resolved today!"
   }
 ]
