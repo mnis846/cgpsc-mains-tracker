@@ -3624,5 +3624,89 @@
     "event_type": "hours",
     "xp_amount": 120,
     "message": "Logged 4.0h of study"
+  },
+  {
+    "id": 703,
+    "event_date": "2026-11-05 00:37:18",
+    "event_type": "checkin",
+    "xp_amount": 25,
+    "message": "Daily check-in — Manish showed up!"
+  },
+  {
+    "id": 704,
+    "event_date": "2026-11-05 00:37:18",
+    "event_type": "streak",
+    "xp_amount": 60,
+    "message": "13-day study streak bonus"
+  },
+  {
+    "id": 705,
+    "event_date": "2026-11-06 00:39:14",
+    "event_type": "checkin",
+    "xp_amount": 25,
+    "message": "Daily check-in — Manish showed up!"
+  },
+  {
+    "id": 706,
+    "event_date": "2026-11-07 02:32:48",
+    "event_type": "checkin",
+    "xp_amount": 25,
+    "message": "Daily check-in — Manish showed up!"
+  },
+  {
+    "id": 707,
+    "event_date": "2026-11-08 02:35:45",
+    "event_type": "checkin",
+    "xp_amount": 25,
+    "message": "Daily check-in — Manish showed up!"
+  },
+  {
+    "id": 708,
+    "event_date": "2026-11-09 03:10:12",
+    "event_type": "checkin",
+    "xp_amount": 25,
+    "message": "Daily check-in — Manish showed up!"
+  },
+  {
+    "id": 709,
+    "event_date": "2026-11-11 07:13:19",
+    "event_type": "checkin",
+    "xp_amount": 25,
+    "message": "Daily check-in — Manish showed up!"
+  },
+  {
+    "id": 710,
+    "event_date": "2026-11-12 02:12:31",
+    "event_type": "checkin",
+    "xp_amount": 25,
+    "message": "Daily check-in — Manish showed up!"
+  },
+  {
+    "id": 711,
+    "event_date": "2026-11-12 02:12:31",
+    "event_type": "checkin",
+    "xp_amount": 25,
+    "message": "Daily check-in — Manish showed up!"
+  },
+  {
+    "id": 712,
+    "event_date": "2026-11-12 02:12:31",
+    "event_type": "checkin",
+    "xp_amount": 25,
+    "message": "Daily check-in — Manish showed up!"
+  },
+  {
+    "id": 713,
+    "event_date": "2026-11-12 03:14:06",
+    "event_type": "hours",
+    "xp_amount": 90,
+    "message": "Logged 3.0h of study"
+  },
+  {
+    "id": 714,
+    "event_date": "2026-11-12 03:14:06",
+    "event_type": "hours",
+    "xp_amount": 90,
+    "message": "Logged 3.0h of study"
   }
 ]
