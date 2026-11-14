@@ -3834,5 +3834,12 @@
     "event_type": "daily_goal",
     "xp_amount": 75,
     "message": "Hit your 6h daily goal!"
+  },
+  {
+    "id": 733,
+    "event_date": "2026-11-14 12:55:04",
+    "event_type": "all_targets",
+    "xp_amount": 100,
+    "message": "All targets resolved today!"
   }
 ]
