@@ -3939,5 +3939,54 @@
     "event_type": "hours",
     "xp_amount": 45,
     "message": "Logged 1.5h of study"
+  },
+  {
+    "id": 748,
+    "event_date": "2026-11-16 06:23:52",
+    "event_type": "daily_goal",
+    "xp_amount": 75,
+    "message": "Hit your 6h daily goal!"
+  },
+  {
+    "id": 749,
+    "event_date": "2026-11-17 03:05:55",
+    "event_type": "checkin",
+    "xp_amount": 25,
+    "message": "Daily check-in — Manish showed up!"
+  },
+  {
+    "id": 750,
+    "event_date": "2026-11-17 03:05:55",
+    "event_type": "streak",
+    "xp_amount": 40,
+    "message": "5-day study streak bonus"
+  },
+  {
+    "id": 751,
+    "event_date": "2026-11-17 03:05:55",
+    "event_type": "checkin",
+    "xp_amount": 25,
+    "message": "Daily check-in — Manish showed up!"
+  },
+  {
+    "id": 752,
+    "event_date": "2026-11-17 03:05:55",
+    "event_type": "streak",
+    "xp_amount": 40,
+    "message": "5-day study streak bonus"
+  },
+  {
+    "id": 753,
+    "event_date": "2026-11-17 03:06:16",
+    "event_type": "hours",
+    "xp_amount": 45,
+    "message": "Logged 1.5h of study"
+  },
+  {
+    "id": 754,
+    "event_date": "2026-11-17 03:06:16",
+    "event_type": "hours",
+    "xp_amount": 45,
+    "message": "Logged 1.5h of study"
   }
 ]
