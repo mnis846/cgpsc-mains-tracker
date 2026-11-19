@@ -4002,5 +4002,26 @@
     "event_type": "hours",
     "xp_amount": 90,
     "message": "Logged 3.0h of study"
+  },
+  {
+    "id": 757,
+    "event_date": "2026-11-19 02:53:21",
+    "event_type": "checkin",
+    "xp_amount": 25,
+    "message": "Daily check-in — Manish showed up!"
+  },
+  {
+    "id": 758,
+    "event_date": "2026-11-19 02:54:48",
+    "event_type": "hours",
+    "xp_amount": 120,
+    "message": "Logged 4.0h of study"
+  },
+  {
+    "id": 759,
+    "event_date": "2026-11-19 02:54:48",
+    "event_type": "hours",
+    "xp_amount": 120,
+    "message": "Logged 4.0h of study"
   }
 ]
