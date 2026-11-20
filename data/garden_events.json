@@ -4093,5 +4093,19 @@
     "event_type": "hours",
     "xp_amount": 60,
     "message": "Logged 2.0h of study"
+  },
+  {
+    "id": 770,
+    "event_date": "2026-11-20 02:47:56",
+    "event_type": "hours",
+    "xp_amount": 45,
+    "message": "Logged 1.5h of study"
+  },
+  {
+    "id": 771,
+    "event_date": "2026-11-20 02:47:56",
+    "event_type": "hours",
+    "xp_amount": 45,
+    "message": "Logged 1.5h of study"
   }
 ]
