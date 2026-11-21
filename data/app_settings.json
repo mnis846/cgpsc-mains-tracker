@@ -21,7 +21,7 @@
   },
   {
     "key": "garden_xp",
-    "value": "46060"
+    "value": "46220"
   },
   {
     "key": "github_token",
@@ -37,11 +37,11 @@
   },
   {
     "key": "last_garden_checkin",
-    "value": "2026-11-20"
+    "value": "2026-11-21"
   },
   {
     "key": "last_garden_daily_goal",
-    "value": "2026-11-16"
+    "value": "2026-11-20"
   },
   {
     "key": "last_harvest_tier",
@@ -49,7 +49,7 @@
   },
   {
     "key": "max_unlocked_trees",
-    "value": "11"
+    "value": "12"
   },
   {
     "key": "prelims_series_title",
