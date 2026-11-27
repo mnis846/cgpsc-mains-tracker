@@ -4408,5 +4408,40 @@
     "event_type": "hours",
     "xp_amount": 37,
     "message": "Logged 1.25h of study"
+  },
+  {
+    "id": 815,
+    "event_date": "2026-11-26 05:26:26",
+    "event_type": "checkin",
+    "xp_amount": 25,
+    "message": "Daily check-in — Manish showed up!"
+  },
+  {
+    "id": 816,
+    "event_date": "2026-11-26 05:26:26",
+    "event_type": "streak",
+    "xp_amount": 16,
+    "message": "2-day study streak bonus"
+  },
+  {
+    "id": 817,
+    "event_date": "2026-11-27 03:18:48",
+    "event_type": "checkin",
+    "xp_amount": 25,
+    "message": "Daily check-in — Manish showed up!"
+  },
+  {
+    "id": 818,
+    "event_date": "2026-11-27 03:23:36",
+    "event_type": "hours",
+    "xp_amount": 112,
+    "message": "Logged 3.75h of study"
+  },
+  {
+    "id": 819,
+    "event_date": "2026-11-27 03:23:36",
+    "event_type": "hours",
+    "xp_amount": 112,
+    "message": "Logged 3.75h of study"
   }
 ]
